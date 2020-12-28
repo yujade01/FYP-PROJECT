@@ -1,2 +1,2 @@
-# fyp_project
+# FYP PROJECT
 Online Shopping
