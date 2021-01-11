@@ -10,7 +10,7 @@
     $pwd = $_POST['password'];
     $email = $_POST['email'];
 
-    $sql = "INSERT INTO account (userID, userpassword, email) VALUES
+    $sql = "INSERT INTO account (userID, userPassword, email) VALUES
         ('$id', '$pwd', '$email')";
 
     if(!mysqli_query($conn, $sql))
@@ -20,6 +20,7 @@
     else
     {
         echo 'Inserted';
+        header('login.php');
     }
 
 ?>
