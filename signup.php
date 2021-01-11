@@ -9,7 +9,7 @@
 
         <h1>Hello, welcome to Signup Page</h1>
 
-        <form action="insert.php" method="post">
+        <form action="signupsystem.php" method="post">
             <input type="text" name="userid" placeholder="Please enter your ID">
             <br><br>
             <input type="password" name="password" placeholder="Please enter your password">
