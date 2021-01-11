@@ -12,8 +12,8 @@
     //to prevent from mysqli injection  
     // $username = stripcslashes($username);  
     // $password = stripcslashes($password);  
-    // $username = mysqli_real_escape_string($con, $username);  
-    // $password = mysqli_real_escape_string($con, $password);  
+    // $username = mysqli_real_escape_string($conn, $username);  
+    // $password = mysqli_real_escape_string($conn, $password);  
   
     $sql = "SELECT * from account where userID = '$username' and userPassword = '$password'";  
     $result = mysqli_query($conn, $sql);  
