@@ -1,5 +1,5 @@
 <?php
-
+    //create new user
     $conn = mysqli_connect('localhost' ,'root', '', 'pchub');
 
     if(!$conn){
