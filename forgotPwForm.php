@@ -14,14 +14,15 @@
 		</div>
 		<div class="form-group">
 			<label>Your New Password</label>
-			<input type="password" name="newPw" maxlength="25">
+			<input type="password" name="newPw" id="newPW" maxlength="25">
 		</div>
 		<div class="form-group">
 			<label>Re-enter your New Password</label>
-			<input type="password" name="confirmPw" maxlength="25">
+			<input type="password" name="confirmPw" id="confirmPw" maxlength="25">
 		</div>
 		<div class="form-group">
-			<button type="submit" name="reset-password" class="btn btn-primary">Reset Now</button>
+			<button type="submit" name="reset-password" class="btn btn-primary">Reset Password</button>
+			<button type = "reset" value = "Reset btn" >Reset</button>
 		</div>
 	</form>
 </body>
