@@ -23,7 +23,7 @@
                 
             </div>
             <div class="form-group">
-                <button type="submit" name="login" class="btn btn-primary button" value="Login">
+                <button type="submit" name="login" class="btn btn-primary">Login</button>
             </div>
             <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
             <p>Forgot Password? <a href="forgotPWForm.php">Reset Password now</a>.</p>
