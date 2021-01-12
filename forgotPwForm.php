@@ -21,7 +21,7 @@
 			<input type="password" name="confirmPw" maxlength="25">
 		</div>
 		<div class="form-group">
-			<button type="submit" name="reset-password" class="login-btn">Reset Now</button>
+			<button type="submit" name="reset-password" class="btn btn-primary">Reset Now</button>
 		</div>
 	</form>
 </body>
