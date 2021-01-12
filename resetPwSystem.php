@@ -19,14 +19,14 @@
 
         if($result == 1)
         {
-            echo "Password updated successfully.";
+            echo "<h1>Password updated successfully.</h1>";
             header('login.php');
         }else
         {
-            echo "Error updating password.";
+            echo "<h1>Error updating password.</h1>";
             header('resetPwSystem.php');
         }
     }else{
-        echo "User ID does not exists.";
+        echo "<h1>User ID does not exists.</h1>";
     }
 ?>
