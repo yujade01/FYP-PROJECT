@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 </head>
 <body>
-	<form class="text-center" action="" method="post">
+	<form class="text-center" action="resetPwSystem.php" method="post">
 		<h2 class="form-title">Reset password</h2>
 		<!-- form validation messages -->
 		<div class="form-group">
