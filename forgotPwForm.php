@@ -18,7 +18,7 @@
 	</script>
 </head>
 <body>
-	<form class="text-center" action="resetPwSystem.php" method="post">
+	<form class="text-center" action="resetPwsystem.php" method="post">
 		<h2 class="form-title">Reset password</h2>
 		<!-- form validation messages -->
 		<div class="form-group">
