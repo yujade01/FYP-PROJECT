@@ -19,6 +19,16 @@
                 </div>
 
                 <div class="form-group">
+                    Quantity:
+                    <input type="number" name="quantity" min="1" max="10">
+                </div>
+
+                <div class="form-group">
+                    Product Description:
+                    <textarea id="" name="prod_desc" rows="4" cols="50">Write your description here....
+                    </textarea>
+                </div>
+                <div class="form-group">
                     Category:
                     <?php
                     $conn = mysqli_connect('localhost' ,'root', '', 'pchub');
