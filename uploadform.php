@@ -7,7 +7,11 @@
     <div class="wrapper">
         <h1>Upload New Product</h1>
             <form action="uploadsystem.php" method="post" enctype="multipart/form-data">
-                
+                <div class="form-group">
+                    Product ID:
+                    <input type="text" name="prod_name" maxlength="5">
+                </div>
+
                 <div class="form-group">
                     Product Name:
                     <input type="text" name="prod_name" maxlength="30">
