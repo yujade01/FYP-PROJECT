@@ -14,7 +14,6 @@ error_reporting(0);
     $productPrice = $_POST["prod_price"];
     $qty = $_POST["quantity"];
     $productDesc = $_POST["prod_desc"];
-    $productDate = date("YYYY-mm-dd");
 
     //preg_replace() used to replace white spaces with _ (underscore)
     $pattern = '/\s+/';
