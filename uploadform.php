@@ -9,7 +9,7 @@
             <form action="uploadsystem.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     Product ID:
-                    <input type="text" name="prod_name" maxlength="5">
+                    <input type="text" name="prod_id" maxlength="5">
                 </div>
 
                 <div class="form-group">
@@ -29,8 +29,7 @@
 
                 <div class="form-group">
                     Product Description:
-                    <textarea id="" name="prod_desc" rows="4" cols="50">Write your description here....
-                    </textarea>
+                    <textarea id="" name="prod_desc" rows="4" cols="50" placeholder="Write your description here...."></textarea>
                 </div>
                 <div class="form-group">
                     Category:
@@ -40,7 +39,7 @@
 
                     /* You can add order by clause to the sql statement if the names are to be displayed in alphabetical order */
 
-                    echo "<select name=student value=''>Student Name</option>"; // list box select command
+                    echo "<select name='category' value=''>Student Name</option>"; // list box select command
 
                     foreach ($conn->query($sql) as $row){//Array or records stored in $row
 
@@ -58,7 +57,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" name="upload" class="btn btn-primary">UPLOAD</button>
+                    <button type="submit" name="submit" class="btn btn-primary">UPLOAD</button>
                 </div>
             </form>
 
