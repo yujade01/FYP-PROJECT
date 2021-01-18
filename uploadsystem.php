@@ -16,6 +16,7 @@ error_reporting(0);
     $productDesc = $_POST["prod_desc"];
     $productDate = date("YYYY-mm-dd");
 
+    //preg_replace() used to replace white spaces with _ (underscore)
     $pattern = '/\s+/';
     $replacement = '_';
     $filename = preg_replace($pattern, $replacement, $productName);
