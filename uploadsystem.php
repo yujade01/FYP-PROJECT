@@ -15,13 +15,16 @@ error_reporting(0);
     $qty = $_POST["quantity"];
     $productDesc = $_POST["prod_desc"];
 
+    $name = $_FILES['images']['name'];
+    $ext = end((explode(".", $name))); # extra () to prevent notice
+    
     //preg_replace() used to replace white spaces with _ (underscore)
     $pattern = '/\s+/';
     $replacement = '_';
     $filename = preg_replace($pattern, $replacement, $productName);
-        $folder = "images/".$filename; 
+        $folder = "images/".$filename.".".$ext; 
         
-    echo "$folder";
+    //echo "$folder";
     $db = mysqli_connect("localhost", "root", "", "pchub");
     
         // Get all the submitted data from the form 
