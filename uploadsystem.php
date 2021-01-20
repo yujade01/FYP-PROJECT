@@ -24,15 +24,15 @@ error_reporting(0);
     $pattern = '/\s+/';
     $replacement = '_';
     $filename = preg_replace($pattern, $replacement, $productName);
-        $folder = "images/".$filename.".".$ext; 
+    $dir = "images/".$filename.".".$ext; 
         
-    //echo "$folder";
+    //echo "$dir";
     $db = mysqli_connect("localhost", "root", "", "pchub");
     
         // Get all the submitted data from the form 
         //now() is given the value of current data & time
         $sql = "INSERT INTO product
-        VALUES ('$productID', '$categoryID', '$productName', '$qty', '$productPrice', '$productDesc', '$folder', now())";
+        VALUES ('$productID', '$categoryID', '$productName', '$qty', '$productPrice', '$productDesc', '$dir', now())";
     
         // Execute query 
        $result = mysqli_query($db, $sql); 
