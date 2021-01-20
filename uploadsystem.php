@@ -16,7 +16,9 @@ error_reporting(0);
     $productDesc = $_POST["prod_desc"];
 
     $name = $_FILES['images']['name'];
-    $ext = end((explode(".", $name))); # extra () to prevent notice
+    //explode() breaks string into array of string
+    //end() move pointer to the last elements of array, shows only extension
+    $ext = end((explode(".", $name)));
     
     //preg_replace() used to replace white spaces with _ (underscore)
     $pattern = '/\s+/';
