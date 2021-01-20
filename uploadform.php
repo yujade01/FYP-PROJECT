@@ -53,7 +53,7 @@
 
                 <div class="form-group">
                     Select image to upload:
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="file" name="images" id="images">
                 </div>
 
                 <div class="form-group">
