@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    </head>
 
     <body>
-        <header>
-            Signup
-        </header>
 
         <h1>Hello, welcome to Signup Page</h1>
 
@@ -16,7 +15,7 @@
             <br><br>
             <input type="text" name="email" placeholder="Please enter your email">
             <br><br>
-            <input type="submit" name="signup" value="Signup">
+            <input type="submit" class="btn btn-primary" name="signup" value="Signup">
 
         </form>
         
