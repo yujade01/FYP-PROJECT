@@ -39,7 +39,7 @@
 
                     /* You can add order by clause to the sql statement if the names are to be displayed in alphabetical order */
 
-                    echo "<select name='category' value=''>Student Name</option>"; // list box select command
+                    echo "<select name='category' value=''></option>"; // list box select command
 
                     foreach ($conn->query($sql) as $row){//Array or records stored in $row
 
@@ -53,7 +53,7 @@
 
                 <div class="form-group">
                     Select image to upload:
-                    <input type="file" name="images" id="images">
+                    <input type="file" name="images">
                 </div>
 
                 <div class="form-group">

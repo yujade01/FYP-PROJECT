@@ -3,7 +3,7 @@
 error_reporting(0); 
 ?> 
 <?php
-  $msg = ""; 
+  //$msg = ""; 
   
   // If upload button is clicked ... 
   if (isset($_POST['submit'])) { 
@@ -18,13 +18,13 @@ error_reporting(0);
     $name = $_FILES['images']['name'];
     //explode() breaks string into array of string
     //end() move pointer to the last elements of array, shows only extension
-    $ext = end((explode(".", $name)));
+    //$ext = end((explode(".", $name)));
     
     //preg_replace() used to replace white spaces with _ (underscore)
     $pattern = '/\s+/';
     $replacement = '_';
-    $filename = preg_replace($pattern, $replacement, $productName);
-    $dir = "images/".$filename.".".$ext; 
+    $filename = preg_replace($pattern, $replacement, $name);
+    $dir = "images/".$filename;
         
     //echo "$dir";
     $db = mysqli_connect("localhost", "root", "", "pchub");
@@ -39,11 +39,18 @@ error_reporting(0);
         
        //check query
         if ($result == 1)  {
-            $msg = "Product uploaded successfully"; 
-        }else{ 
-            $msg = "Failed to upload product"; 
-      }
+          ?>
+          <script> alert("Product uploaded successfully")</script>
 
-      echo "<h1>$msg</h1>";
+          <?php
+            //$msg = "Product uploaded successfully";
+          
+        }else{
+          ?>
+          <script> alert("Failed to upload product")</script>
+          <?php
+            //$msg = "Failed to upload product"; 
+      }
+      //echo "<h1>$msg</h1>";
   } 
 ?> 
