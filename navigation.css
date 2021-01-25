@@ -7,8 +7,8 @@ body{
 /* Bar Style */
 ul{
   margin: 0; 
-  height: 80px;
-  padding: 20px 0; 
+  height: 70px;
+  padding: 15px 0px; 
   background:#afaafa;
   display: flex;
   box-shadow: 0 10px 30px rgba(0,0,0,.3);
