@@ -71,7 +71,7 @@
 
       <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
       <h2><?php echo $row["productName"]; ?></h2>
-      <p><?php echo $row["productPrice"]; ?></p>
+      <p>RM<?php echo $row["productPrice"]; ?></p>
 
     </div>
     </div>
