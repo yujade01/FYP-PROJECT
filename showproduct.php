@@ -33,6 +33,10 @@
       <button name="search" class= "search"><i class="fas fa-search"></i></button>
       </div>
     </div>
+    <br/>
+    <div>
+      <?php include ('sort.php')?>
+    </div>
   </div>
 </div>
 
@@ -46,6 +50,38 @@
   $search_result = filterTable($query);
 
   }
+  else if(isset($_POST['sort']))
+  {
+    //sort product name A-Z
+    if(isset($_POST['sort1']) == "atoz")
+    {
+      $atoz = "SELECT * from product ORDER BY productName ASC";
+      $search_result = sortTable($atoz);
+    }
+    else if(isset($_POST['sort2']) == 'ztoa')
+    {
+      $ztoa = "SELECT * from product ORDER BY productName DESC";
+      $search_result = sortTable($ztoa);
+    }
+    else if(isset($_POST['sort3']) == 'lowtohigh')
+    {
+      $lowtohigh = "SELECT * from product ORDER BY productPrice ASC";
+      $search_result = sortTable($lowtohigh);
+    }
+    else if(isset($_POST['sort4']) == 'hightolow')
+    {
+      $hightolow = "SELECT * from product ORDER BY productPrice DESC";
+      $search_result = sortTable($hightolow);
+    }
+    else
+    {
+      echo '<div class="btn-warning"> 
+      <center><p>You did not select any options for sorting.</p></center>
+      </div>';
+      $selectAll = "SELECT * from product";
+      $search_result = sortTable($selectAll);
+    }
+  }
   else{
   $query = "SELECT * FROM `product`";
   $search_result = filterTable($query);
@@ -57,6 +93,13 @@
   $conn = mysqli_connect("localhost", "root", "", "pchub");
   $filter_Result = mysqli_query($conn, $query);
   return $filter_Result;
+  }
+
+  function sortTable($query)
+  {
+    $conn = mysqli_connect("localhost", "root", "", "pchub");
+    $sort_result = mysqli_query($conn, $query);
+    return $sort_result;
   }
    
   //display database data
