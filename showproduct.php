@@ -109,7 +109,7 @@
     
       <div class = "row">
       <div class="column" >
-        <form action="delete_product_system.php" method="POST">
+        <form action="" method="POST">
         <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
         <h2><?php echo $row["productName"]; ?></h2>
         <p>RM<?php echo $row["productPrice"]; ?></p>
