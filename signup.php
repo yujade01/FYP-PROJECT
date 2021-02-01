@@ -1,11 +1,23 @@
+<?php
+    session_start();
+    $_SESSION["page"] = "Signup Form";
+    $_SESSION["company"] = "PCHUB";
+?>
 <!DOCTYPE html>
 <html>
     <head>
+        <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+
+        <style>
+            .center {
+            text-align: center;
+            }
+        </style>
     </head>
 
     <body>
-
+    <div class="center">
         <h1>Hello, welcome to Signup Page</h1>
 
         <form action="signupsystem.php" method="post">
@@ -18,6 +30,8 @@
             <input type="submit" class="btn btn-primary" name="signup" value="Signup">
 
         </form>
+    </div>
+        
         
     </body>
 </html>
