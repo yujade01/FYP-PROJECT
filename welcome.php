@@ -1,7 +1,6 @@
 <?php
     session_start();
     $_SESSION["page"] = "Dashboard";
-    $_SESSION["company"] = "PCHUB";
 ?>
 <html>
     <head>
