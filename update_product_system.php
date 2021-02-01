@@ -18,17 +18,14 @@ if (isset($_POST['update'])) {
     $result = mysqli_query($db, $sql);
 
     //check query
-    if ($result == 1)  {
+    if ($result == true)  {
         ?>
-        <script> alert("Product uploaded successfully")</script>
+        <script> alert("Product uploaded successfully"); window.location.href="product.php";</script>
         <?php
-        //$msg = "Product updated successfully";
-        //header('Location:product.php');
     }else{ 
         ?>
         <script> alert("Failed to update product")</script>
         <?php
-        //$msg = "Failed to update product"; 
   }
 }
 
