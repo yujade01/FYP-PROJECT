@@ -38,7 +38,7 @@ error_reporting(0);
        $result = mysqli_query($db, $sql); 
         
        //check query
-        if ($result == 1)  {
+        if ($result == true)  {
           ?>
           <script> alert("Product uploaded successfully")</script>
 
