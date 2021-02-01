@@ -1,7 +1,6 @@
 <?php
     session_start();
     $_SESSION["page"] = "Signup Form";
-    $_SESSION["company"] = "PCHUB";
 ?>
 <!DOCTYPE html>
 <html>
