@@ -17,7 +17,7 @@
         $sql = "UPDATE account SET userPassword = '$PWtoReset' where userID ='$userID'";
         $result = mysqli_query($conn, $sql);
 
-        if($result == 1)
+        if($result == true)
         {
             echo "<h1>Password updated successfully.</h1>";
             header('login.php');
