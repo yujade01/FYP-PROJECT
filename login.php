@@ -1,14 +1,25 @@
+<?php
+    session_start();
+    $_SESSION["page"] = "Login";
+    $_SESSION["company"] = "PCHUB";
+    $_SESSION["username"] = "GUEST";
+    $_SESSION["loggedin"] = false;
+?>
 <html>
 <head>
-    <title>Login</title>
+    <title> <?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
         .wrapper{ width: 350px; padding: 20px; }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            }
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper center">
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
         <form action="loginsystem.php" method="post">
