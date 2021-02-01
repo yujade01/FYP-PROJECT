@@ -43,14 +43,11 @@ error_reporting(0);
           <script> alert("Product uploaded successfully")</script>
 
           <?php
-            //$msg = "Product uploaded successfully";
           
         }else{
           ?>
           <script> alert("Failed to upload product")</script>
           <?php
-            //$msg = "Failed to upload product"; 
       }
-      //echo "<h1>$msg</h1>";
   } 
 ?> 
