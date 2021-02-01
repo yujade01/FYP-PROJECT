@@ -15,7 +15,7 @@
     </li>
 
     <li>
-    <a href="#">
+    <a onclick="location.href='welcome.php'">
     <div class = "icon">
         <i class="fa fa-home" aria-hidden="true"></i>
         <i class="fa fa-home" aria-hidden="true"></i>
@@ -83,9 +83,27 @@
     <div class="name"><span data-text = "Accessories">Accessories</span></div>
     </a>
     </li>
-
-
-
+    
+    <li style="float:right">
+        <p>Welcome, <?php echo $_SESSION["username"]; ?></p>
+    </li>
+    <?php
+        if($_SESSION['loggedin'] != true)
+        {
+            ?>
+            <li>
+                <a href="login.php"><input type="submit" name="loginBtn" value="LOGIN"></input></a>
+            </li>
+            <?php
+        }else{
+            ?>
+            <li style="float:right">
+                <a href="logout.php"><input type="submit" name="logoutBtn" value="LOGOUT"></a>
+            </li>
+            <?php
+        }
+    ?>
+    
 
     </ul>
 
