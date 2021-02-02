@@ -35,7 +35,6 @@
         <script> alert("Login successfully"); window.location.href = "welcome.php";</script>
 
         <?php
-        //header("Location: welcome.php");
       }else{
         ?>
         <script> alert("Failed to login."); window.location.href = "login.php";</script>
