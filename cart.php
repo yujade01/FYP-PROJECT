@@ -1,8 +1,10 @@
 <?php
     session_start();
+    $_SESSION["page"] = "Cart";
 ?>
 <html>
     <head>
+    <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             table, th {
