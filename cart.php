@@ -25,7 +25,6 @@
                 height: 50px;
                 width: 50px;
             }
-
             .btn {
             background-color: black; /* Blue background */
             border: none; /* Remove borders */
@@ -33,17 +32,7 @@
             padding: 12px 16px; /* Some padding */
             font-size: 16px; /* Set a font size */
             cursor: pointer; /* Mouse pointer on hover */
-            }
-            .btn-danger {
-            color: #fff;
-            background-color: #d9534f;
-            border-color: #d43f3a;
-            }
-
-            /* Darker background on mouse-over */
-            .btn:hover {
-            background-color: red;
-            }
+            }        
         </style>
     </head>
     <body>
@@ -122,8 +111,8 @@
                 ?>
             </table>
             <br/>
-            <input type="submit" name="keepbuyingBtn" value="Keep Buying">
-            <input type="submit" name="processBtn" value="Process Order">
+            <input type="submit" onclick="window.location.href='showproduct.php'" class="btn btn-primary" name="keepbuyingBtn" value="Keep Buying">
+            <input type="submit" onclick="window.location.href='delivery.php'" class="btn btn-danger" name="processBtn" value="Process Order">
         </div>
         
     </body>
