@@ -1,20 +1,25 @@
+<?php
+    session_start();
+    $_SESSION["page"] = "Checkout";
+?>
 <html>
-<head>
-    <style>
-        .center {
-            text-align: center;
-            }
-        fieldset{
-            border: 1px solid black;
-            width: 400px;
-            margin:auto;
-            }
-    </style>
-</head>
+    <head>
+        <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+        <style>
+            .center {
+                text-align: center;
+                }
+            fieldset{
+                border: 1px solid black;
+                width: 400px;
+                margin:auto;
+                }
+        </style>
+    </head>
     <body>
     <?php include ('navigation.php'); ?>
     <form class="center">
-    <br/><br/><br/><br/>
+        <br/><br/><br/><br/>
         <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
 
             <fieldset>
@@ -38,8 +43,8 @@
             <br/><br/>
             </fieldset><br/>
 
-            <input type="submit" name="backtocartBtn" value="Back to Cart">
-            <input type="submit" name="continueBtn" value="Continue">
+            <input type="button" onclick="window.location.href='cart.php'" class="but btn-primary" name="backtocartBtn" value="Back to Cart">
+            <input type="button" onclick="window.location.href='payment.php'" class="but btn-danger" name="continueBtn" value="Continue">
     </form>
         
     </body>
