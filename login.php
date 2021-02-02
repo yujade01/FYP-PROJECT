@@ -16,21 +16,27 @@
             margin-left: auto;
             margin-right: auto;
             }
+        .logo {
+                height: 200px;
+                width: 200px;
+            }
     </style>
 </head>
 <body>
     <div class="wrapper center">
+        <p><img class="logo" src="pchublogo.png"></p>
+        <p><h2 style="color: green;">Always Available For You</h2></p>
         <h2>Login</h2>
         <p>Please fill in your credentials to login.</p>
         <form action="loginsystem.php" method="post">
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" name="userID" class="form-control" maxlength="10">
+                <input type="text" name="userID" class="form-control" maxlength="10" required>
           
             </div>    
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" maxlength="25">
+                <input type="password" name="password" class="form-control" maxlength="25" required>
                 
             </div>
             <div class="form-group">
