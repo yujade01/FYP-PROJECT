@@ -108,6 +108,16 @@
                         </tr>
                         <?php
                     }
+                    ?>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total Price: </td>
+                    <td>RM </td>
+                    </tr>
+                    <?php
                     echo "</table>";
                 ?>
             </table>
