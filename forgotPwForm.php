@@ -1,7 +1,6 @@
 <?php
     session_start();
     $_SESSION["page"] = "Password Reset Form";
-    $_SESSION["company"] = "PCHUB";
 ?>
 <html lang="en">
 <head>
