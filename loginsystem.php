@@ -16,15 +16,21 @@
     // $password = mysqli_real_escape_string($conn, $password);  
   
     $sql = "SELECT * from account where userID = '$username' and userPassword = '$password'";  
-    $result = mysqli_query($conn, $sql);  
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+    $result = mysqli_query($conn, $sql);    
     $count = mysqli_num_rows($result);  
     
     //check query
-    if ($result == true)  {
-        session_start();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
+    if ($count != 0)  {
+        if($result == true)
+        {
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['username'] = $username;
+        }else{
+            ?>
+        <script> alert("Failed to login."); window.location.href = "login.php";</script>
+        <?php
+        }
         ?>
         <script> alert("Login successfully"); window.location.href = "welcome.php";</script>
 
@@ -32,7 +38,7 @@
         //header("Location: welcome.php");
       }else{
         ?>
-        <script> alert("Failed to login.")</script>
+        <script> alert("Failed to login."); window.location.href = "login.php";</script>
         <?php
     }     
 ?>
