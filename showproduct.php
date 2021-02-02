@@ -23,10 +23,8 @@
   });
   </script>
 
-
+<?php include ('navigation.php');?>
   <form action="showproduct.php" method="post">
-
-  <?php include ('navigation.php');?>
 
 <div class="container">
   <div class = "search_wrap search_wrap_3">
