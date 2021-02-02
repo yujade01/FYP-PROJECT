@@ -1,10 +1,19 @@
+<?php
+    session_start();
+?>
 <html>
     <head>
-
+        <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+        <style>
+            .center {
+            text-align: center;
+            }
+        </style>
     </head>
     <body>
-    <form class="">
+    <form class="center">
         <?php include ('navigation.php'); ?>
+        <br/><br/><br/><br/>
         <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
 
             <p>SELECT PAYMENT METHOD</p>
