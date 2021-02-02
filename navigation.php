@@ -136,6 +136,15 @@
     </a>
     </li>
     
+    <li>
+    <a href="cart.php">
+    <div class = "icon">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </div>
+    <div class="name"><span data-text = "Cart">Cart</span></div>
+    </a>
+    </li>
     <li style="float:right">
         <p>Welcome, <?php echo $_SESSION["username"]; ?></p>
     </li>
