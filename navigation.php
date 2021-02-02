@@ -6,22 +6,13 @@
     <script src="https://kit.fontawesome.com/22e170816e.js" crossorigin="anonymous"></script>
     <link href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity ="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin = "anonymous">
     <style>
-        .but {
-        display: inline-block;
-        padding: 6px 12px;
-        margin-bottom: 0;
-        font-size: 14px;
-        font-weight: normal;
-        line-height: 1.42857143;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -ms-touch-action: manipulation;
-            touch-action: manipulation;
-        cursor: pointer;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
+        .btn {
+            background-color: black; /* Blue background */
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            padding: 12px 16px; /* Some padding */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
         }
         .btn-primary {
         color: #fff;
@@ -153,13 +144,13 @@
         {
             ?>
             <li>
-                <a href="login.php"><input type="submit" class="but btn-primary" name="loginBtn" value="LOGIN"></input></a>
+                <a href="login.php"><input type="submit" class="btn btn-primary" name="loginBtn" value="LOGIN"></input></a>
             </li>
             <?php
         }else{
             ?>
             <li style="float:right">
-                <a href="logout.php"><input type="submit" class="but btn-danger" name="logoutBtn" value="LOGOUT"></a>
+                <a href="logout.php"><input type="submit" class="btn btn-danger" name="logoutBtn" value="LOGOUT"></a>
             </li>
             <?php
         }
