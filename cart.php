@@ -39,81 +39,134 @@
         <?php include ('navigation.php'); ?>
         <div>
             <br/><br/><br/><br/>
-        <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
-            <table class="center">
-                <tr>
-                    <td>
-                        Image
-                    </td>
-                    <td>
-                        Product ID
-                    </td>
-                    <td>
-                        Product Name
-                    </td>
-                    <td>
-                        Quantity
-                    </td>
-                    <td>
-                        Price
-                    </td>
-
-                </tr>
+        
+        <?php
+            if($_SESSION["loggedin"] != true)
+            {
+                ?>
+                <p><h1>Please login to view your cart.</h1></p>
                 <?php
-                    $conn = mysqli_connect("localhost", "root", "", "pchub");
-                    $query = "SELECT cart.imgDir, cart.productID, product.productName, cart.quantity, cart.price FROM cart 
-                    INNER JOIN product on cart.productID = product.productID and cart.imgDir = product.imgDir";
+            }else{
 
-                    $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
-                    echo "<br>";
-                    while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
-                        // echo "<tr>";
-                        // foreach ($row as $field => $value) { // I you want you can right this line like this: foreach($row as $value) {
-                        //     echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
-                        // }
-                        // echo "</tr>";
-                        ?>
+                $username = $_SESSION["username"];
+                $conn = mysqli_connect("localhost", "root", "", "pchub");
+                $query = "SELECT cart.imgDir, cart.productID, product.productName, cart.quantity, cart.price FROM cart 
+                INNER JOIN product on cart.productID = product.productID and cart.imgDir = product.imgDir where userID = '$username'";
+
+                $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
+                $count = mysqli_num_rows($result);
+        ?>
+        <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
+        <?php
+                if($count == 0)
+                {
+                    ?>
+                    <p>You have no item in your cart.</p>
+                    <input type="submit" onclick="window.location.href='showproduct.php'" class="btn btn-primary" name="backBtn" value="BACK">
+                    <?php
+                }else
+                    {
+                ?>
+                    <table class="center">
                         <tr>
                             <td>
-                            <img class = "icon" src = "<?php echo $row["imgDir"]; ?>">
                             </td>
                             <td>
-                            <?php echo $row["productID"]; ?>
+                                Product ID
                             </td>
                             <td>
-                            <?php echo $row["productName"]; ?>
+                                Product Name
                             </td>
                             <td>
-                                <input type="number" value="<?php echo $row["quantity"]; ?>">
+                                Quantity
                             </td>
                             <td>
-                            RM<?php echo $row["price"]; ?>
+                                Price
                             </td>
-                            <td>
-                            <a class="btn btn-danger" href="#">
-                            <i class="fa fa-trash-o fa-lg"></i> Delete
-                            </a>
-                            </td>
+                            <td></td>
                         </tr>
                         <?php
-                    }
-                    ?>
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>Total Price: </td>
-                    <td>RM </td>
-                    </tr>
-                    <?php
-                    echo "</table>";
-                ?>
-            </table>
+                            echo "<br>";
+                            $totalprice = 0;
+                            while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
+                                ?>
+                                <tr>
+                                    <td>
+                                    <img class = "icon" src = "<?php echo $row["imgDir"]; ?>">
+                                    </td>
+                                    <td>
+                                    <?php echo $row["productID"]; ?>
+                                    </td>
+                                    <td>
+                                    <?php echo $row["productName"]; ?>
+                                    </td>
+                                    <td>
+                                        <input type="number" value="<?php echo $row["quantity"]; ?>">
+                                    </td>
+                                    <td>
+                                    RM<?php echo $row["price"]; ?>
+                                    </td>
+                                    <td>
+                                    <form method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
+                                    <button type="submit" class="btn btn-danger" name="delete_cart">
+                                    <i class="fa fa-trash-o fa-lg"></i> Delete
+                                    </button>
+                                    </form>
+                                    </td>
+                                </tr>
+                                <?php
+                                $totalprice += ($row["quantity"] * $row["price"]);
+                            }
+                            ?>
+                            <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total: </td>
+                            <td>RM <?php echo number_format($totalprice, 2) ?></td>
+                            </tr>
+                            <?php
+                            echo "</table>";
+                        ?>
+                    </table>
             <br/>
+            <?php
+                $_SESSION["total"] = $totalprice;
+            ?>
             <input type="submit" onclick="window.location.href='showproduct.php'" class="btn btn-primary" name="keepbuyingBtn" value="Keep Buying">
             <input type="submit" onclick="window.location.href='delivery.php'" class="btn btn-danger" name="processBtn" value="Process Order">
+            <?php
+                }
+            ?>
         </div>
+        <?php
+            }
+
+            if(isset($_POST['delete_cart']))
+            {
+                $id = $_POST["id"];
+                $conn = mysqli_connect("localhost", "root", "", "pchub");
+                $sql = "DELETE FROM cart WHERE productID = '$id' and userID = '$username'";
+
+                $result = mysqli_query($conn, $sql);
+
+                if ($result == true)  {
+                    ?>
+                    <script> alert("Product removed from cart.")</script>
         
+                    <?php
+                }else{
+                    ?>
+                    <script> alert("Failed to remove from cart")</script>
+                    <?php
+                }
+                ?>
+                <script> window.location.href="cart.php"; </script>
+                <?php
+                //header('Location: cart.php');
+            }
+        ?>
     </body>
 </html>
