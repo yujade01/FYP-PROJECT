@@ -20,11 +20,11 @@
         <h1>Hello, welcome to Signup Page</h1>
 
         <form action="signupsystem.php" method="post">
-            <input type="text" name="userid" placeholder="Please enter your ID">
+            <input type="text" name="userid" placeholder="Please enter your ID" required>
             <br><br>
-            <input type="password" name="password" placeholder="Please enter your password">
+            <input type="password" name="password" placeholder="Please enter your password" required>
             <br><br>
-            <input type="text" name="email" placeholder="Please enter your email">
+            <input type="text" name="email" placeholder="Please enter your email" required>
             <br><br>
             <input type="submit" class="btn btn-primary" name="signup" value="Signup">
 
