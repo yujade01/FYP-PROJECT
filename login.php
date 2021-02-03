@@ -2,8 +2,8 @@
     session_start();
     $_SESSION["page"] = "Login";
     $_SESSION["company"] = "PCHUB";
-    $_SESSION["username"] = "GUEST";
     $_SESSION["loggedin"] = false;
+    $_SESSION["username"] = "GUEST";
 ?>
 <html>
 <head>
@@ -44,6 +44,7 @@
             </div>
             <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
             <p>Forgot Password? <a href="forgotPWForm.php">Reset Password now</a>.</p>
+            <p><a href="welcome.php">Continue as GUEST -></a></p>
         </form>
     </div>    
 </body>
