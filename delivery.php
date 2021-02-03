@@ -1,6 +1,7 @@
 <?php
     session_start();
     $_SESSION["page"] = "Checkout";
+    $total = $_SESSION["total"];
 ?>
 <html>
     <head>
@@ -18,16 +19,21 @@
     </head>
     <body>
     <?php include ('navigation.php'); ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>//jQuery Plugin
+    <?php 
+    if(!empty($_GET['shipping'])){ $option = $_GET['shipping'];}
+    else{ $option = '0';} //if no radio button is checked
+    ?>
     <form class="center">
         <br/><br/><br/><br/>
         <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
 
             <fieldset>
-                <input type="radio" id="pick-up" name="shipping" value="pick-up">
+                <input type="radio" id="pick-up" name="shipping" value="0" onclick="Show()">
                 <label for="pick-up">Pick-Up in store, FREE</label><br/><br/>
-                <input type="radio" id="standard" name="shipping" value="standard">
+                <input type="radio" id="standard" name="shipping" value="6" onclick="Show()">
                 <label for="standard">Standard, RM6</label><br/><br/>
-                <input type="radio" id="express" name="shipping" value="express">
+                <input type="radio" id="express" name="shipping" value="12" onclick="Show()">
                 <label for="express">Express, RM12</label>
             </fieldset>
 
@@ -35,11 +41,20 @@
 
             <fieldset>
             <br/>
-            Total Price:
+            Total: RM <?php echo number_format($total,2) ?>
             <br/><br/>
-            Shipping Costs:
+            Shipping Costs:RM <span class="fee"><?php echo $option;?></span>
+            <script>
+                $('input[type=radio]').click(function(e) {//jQuery works on clicking radio box
+                    var value = $(this).val(); //Get the clicked checkbox value
+                    $('.fee').html(value);
+                });
+            </script>
             <br/><br/>
-            Total Payment:
+            <?php
+                $payment = $total + $option;
+            ?>
+            Total Payment: RM <span><?php echo $payment;?></span>
             <br/><br/>
             </fieldset><br/>
 
