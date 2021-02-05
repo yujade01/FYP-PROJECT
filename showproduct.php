@@ -110,15 +110,24 @@
     
       <div class = "row">
       <div class="column" >
-        <form action="" method="POST">
+        <form action="productdetails.php" method="GET">
+
+        <a href = "productdetails.php?id=<?php echo $row ['productID'] ?>" name = "details">
+
+        <p><input type="hidden" name="prodid" value="<?php echo $row["productID"];?>"></p>
+
         <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
         <h2><?php echo $row["productName"]; ?></h2>
         <p>RM<?php echo $row["productPrice"]; ?></p>
+
+        </a>
+        
         <p>
           <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
           <input type="submit" name="edit" class="but btn-info" value="EDIT">
           <input type="submit" name="delete" class="but btn-danger" value="DELETE">
         </p>
+
         </form>
       </div>
       </div>
