@@ -1,9 +1,12 @@
+<?php
+    session_start();
+    $_SESSION["page"] = "Product";
+?>
 <!DOCTYPE html>
-
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href= "showproduct.css">
-    <title>Product</title>
+    <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
     
     <script src="https://kit.fontawesome.com/22e170816e.js" crossorigin="anonymous"></script>
   </head>
@@ -20,10 +23,8 @@
   });
   </script>
 
-
+<?php include ('navigation.php');?>
   <form action="showproduct.php" method="post">
-
-  <?php include ('navigation.php');?>
 
 <div class="container">
   <div class = "search_wrap search_wrap_3">

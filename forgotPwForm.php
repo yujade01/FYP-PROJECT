@@ -1,7 +1,11 @@
+<?php
+    session_start();
+    $_SESSION["page"] = "Password Reset Form";
+?>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Password Reset FORM</title>
+	<title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 
 	<script>

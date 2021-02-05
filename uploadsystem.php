@@ -38,19 +38,16 @@ error_reporting(0);
        $result = mysqli_query($db, $sql); 
         
        //check query
-        if ($result == 1)  {
+        if ($result == true)  {
           ?>
           <script> alert("Product uploaded successfully")</script>
 
           <?php
-            //$msg = "Product uploaded successfully";
           
         }else{
           ?>
           <script> alert("Failed to upload product")</script>
           <?php
-            //$msg = "Failed to upload product"; 
       }
-      //echo "<h1>$msg</h1>";
   } 
 ?> 
