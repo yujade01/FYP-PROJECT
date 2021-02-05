@@ -145,7 +145,7 @@
     <div class="name"><span data-text = "Cart">Cart</span></div>
     </a>
     </li>
-    <li style="float:right">
+    <li>
         <p>Welcome, <?php echo $_SESSION["username"]; ?></p>
     </li>
     <?php
@@ -158,7 +158,7 @@
             <?php
         }else{
             ?>
-            <li style="float:right">
+            <li>
                 <a href="logout.php"><input type="submit" class="but btn-danger" name="logoutBtn" value="LOGOUT"></a>
             </li>
             <?php
