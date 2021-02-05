@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 // Check to see the URL variable is set and that it exists in the database
     // Connect to the MySQL database
 
@@ -40,7 +42,7 @@
   <!-- Navigation bar -->
   <?php include ('navigation.php');?>
 
-  <a href="showproduct.php" ><input type="button" class="back-button" value="< BACK"></input></a>
+  <a href="showproduct.php" ><input type="button" class="back-button btn-primary" value="< BACK"></input></a>
 
   <main class="container">
     <div class="left-column">
@@ -66,7 +68,7 @@
 
       <form  method="post" action="">
         <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
-        <input type="submit" name="button" id="button" value="Add to Shopping Cart" /> 
+        <input type="submit" class="but btn-danger" name="add_tp_cart" id="button" value="Add to Shopping Cart" /> 
 
       </form>
  
