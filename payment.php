@@ -11,10 +11,10 @@
         </style>
     </head>
     <body>
+    <?php include ('navigation.php'); ?>
     <form class="center">
-        <?php include ('navigation.php'); ?>
         <br/><br/><br/><br/>
-        <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
+        <p>1/SHOPPING CART 2/DELIVERY <b>3/PAYMENT</b></p>
 
             <p>SELECT PAYMENT METHOD</p>
             <a href="#"><img src="visa-mastercard-logo.png" height="100px" width="500px"></a>
