@@ -4,8 +4,8 @@ session_start();
     if(isset($_POST["add_to_cart"]))
     {
         $userid = $_SESSION["username"];
-        $prod_id = $_POST["id"];
-        $quantity = $_POST["qty"];
+        $prod_id = $_POST["pid"];
+        $quantity = $_POST["quantity"];
         $price = $_POST["price"];
         $imgDir = $_POST["imgDir"];
 
@@ -19,14 +19,15 @@ session_start();
         $sql = "INSERT INTO cart value('', '$userid', '$prod_id', '$quantity', '$price', '$imgDir')";
         $result = mysqli_query($conn, $sql);
         //update stock from table product
-        $update_stock = "UPDATE product set qty-=$quantity where userID = '$userid' and productID = '$prod_id'";
+        $update_stock = "UPDATE product set quantity = (quantity - '$quantity') 
+        where userID = '$userid' and productID = '$prod_id'"; //problem at here
 
         //if query found the row
         if($search_result == true)
         {  
             //update qty in existing record
-            $update_qty = "UPDATE cart set qty += '$quantity' where userID = '$userid' and productID = '$prod_id'";
-            $update_result = mysqli_query($conn, $update_qty);
+            $update_qty = "UPDATE cart set quantity = (quantity + '$quantity') where userID = '$userid' and productID = '$prod_id'";
+            $update_result = mysqli_query($conn, $update_qty); 
 
             //if update qty successfully
             if($update_result == true)
@@ -39,10 +40,14 @@ session_start();
                 <script> alert("Product added to cart."); window.location.href = "cart.php";</script>
             <?php
                 }else{
-                    error_reporting(E_ALL);
+                    ?>
+                    <script> alert("Failed to update stock."); window.location.href = "cart.php";</script>
+                    <?php
                 }
             }else{
-                error_reporting(E_ALL);
+                ?>
+                    <script> alert("Failed to update quantity."); window.location.href = "cart.php";</script>
+                    <?php
             }
         }else if($search_result == false && $result == true)
         {
@@ -53,7 +58,9 @@ session_start();
             <script> alert("Product added to cart."); window.location.href = "cart.php";</script>
             <?php
             }else{
-                error_reporting(E_ALL);
+                ?>
+                    <script> alert("Something went wrong."); window.location.href = "cart.php";</script>
+                    <?php
             }
         }else{
             ?>
