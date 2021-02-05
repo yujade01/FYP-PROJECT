@@ -68,7 +68,7 @@ session_start();
 
       <form  method="post" action="">
         <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
-        <input type="submit" class="but btn-danger" name="add_tp_cart" id="button" value="Add to Shopping Cart" /> 
+        <input type="submit" class="but btn-danger" name="add_to_cart" id="button" value="Add to Shopping Cart" /> 
 
       </form>
  
