@@ -49,30 +49,28 @@ session_start();
         <img src="<?php echo $imagePath ?>" width="500" height="500" alt="<?php echo $product_name; ?>" />
     </div>
 
-    <div class = "right-column">
-    <div class = "product-desc">
-        <h1><?php echo $product_name; ?></h1>
-        <p class ="desc"><?php echo $details; ?></p>
-    </div>
+      <div class = "right-column">
+      <form action="add_to_cart.php" method="post">
+      <input type="hidden" name="imgDir" value="<?php echo $imagePath; ?>"/>
+        <div class = "product-desc">
+            <h1><?php echo $product_name; ?></h1>
+            <p class ="desc"><?php echo $details; ?></p>
+        </div>
 
-    <div>
-      <form action="">
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" value="1" min="1">
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1">
+        </div>
+
+        <div class="product-price">
+          <input type="hidden" name="price" value="<?php echo $price; ?>"/>
+          <p class = "price"><?php echo "RM ".$price; ?><br/><p>
+        </div>
+
+          <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
+          <input type="submit" class="but btn-danger" name="add_to_cart" id="button" value="Add to Shopping Cart" />
       </form>
-    </div>
-
-    <div class="product-price">
-      <p class = "price"><?php echo "RM ".$price; ?><br/><p>
-    </div>
-
-      <form  method="post" action="">
-        <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
-        <input type="submit" class="but btn-danger" name="add_tp_cart" id="button" value="Add to Shopping Cart" /> 
-
-      </form>
- 
-  </div>
+      </div>
   </main>
 
 
