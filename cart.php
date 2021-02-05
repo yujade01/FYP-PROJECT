@@ -56,7 +56,7 @@
                 $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
                 $count = mysqli_num_rows($result);
         ?>
-        <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
+        <p><b>1/SHOPPING CART</b> 2/DELIVERY 3/PAYMENT</p>
         <?php
                 if($count == 0)
                 {
