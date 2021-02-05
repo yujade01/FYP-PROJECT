@@ -26,7 +26,7 @@
     ?>
     <form class="center">
         <br/><br/><br/><br/>
-        <p>1/SHOPPING CART 2/DELIVERY 3/PAYMENT</p>
+        <p>1/SHOPPING CART <b>2/DELIVERY</b> 3/PAYMENT</p>
 
             <fieldset>
                 <input type="radio" id="pick-up" name="shipping" value="0" onclick="Show()">
