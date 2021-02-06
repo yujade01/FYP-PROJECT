@@ -95,6 +95,7 @@
                                     <img class = "icon" src = "<?php echo $row["imgDir"]; ?>">
                                     </td>
                                     <td>
+                                    <!-- Update Quantity and Subtotal Form -->
                                     <form action="update_qty_price.php" method="POST">
                                     <input type="hidden" name="pid" value="<?php echo $row["productID"];?>">
                                     <?php echo $row["productID"]; ?>
@@ -111,6 +112,7 @@
                                     <span>RM<?php echo number_format($row["totalprice"], 2); ?></span>
                                     </td>
                                     </form>
+                                    <!-- Delete Cart Item Form -->
                                     <form action="delete_cart.php" method="POST">
                                     <td>
                                     <input type="hidden" name="pid" value="<?php echo $row["productID"];?>">
