@@ -18,7 +18,7 @@ session_start();
         $count = mysqli_num_rows($search_result);
 
         //insert into cart table
-        $sql = "INSERT INTO cart VALUES('', '$userid', '$prod_id', '$quantity', '$price', '$imgDir')";
+        $sql = "INSERT INTO cart VALUES('', '$userid', '$prod_id', '$quantity', '$price', '', '$imgDir')";
         //update stock from table product
         $update_stock = "UPDATE product set quantity = (quantity - '$quantity') 
         WHERE productID = '$prod_id'";
@@ -51,7 +51,7 @@ session_start();
                     <script> alert("Failed to update quantity."); window.location.href = "cart.php";</script>
                     <?php
             }
-        }else if($result == true)
+        }else if($count == 0)
         {
             $update_stock_result = mysqli_query($conn, $update_stock);
             if($update_stock_result == true)

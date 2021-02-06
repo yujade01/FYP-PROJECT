@@ -54,7 +54,7 @@
             <?php
                 $payment = $total + $option;
             ?>
-            Total Payment: RM <span><?php echo $payment;?></span>
+            Total Payment: RM <span><?php echo number_format($payment, 2);?></span>
             <br/><br/>
             </fieldset><br/>
 

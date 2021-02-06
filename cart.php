@@ -50,7 +50,7 @@
 
                 $username = $_SESSION["username"];
                 $conn = mysqli_connect("localhost", "root", "", "pchub");
-                $query = "SELECT cart.imgDir, cart.productID, product.productName, cart.quantity, cart.price FROM cart 
+                $query = "SELECT cart.imgDir, cart.productID, product.productName, cart.quantity, cart.price, cart.totalprice FROM cart 
                 INNER JOIN product on cart.productID = product.productID and cart.imgDir = product.imgDir where userID = '$username'";
 
                 $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
@@ -95,25 +95,32 @@
                                     <img class = "icon" src = "<?php echo $row["imgDir"]; ?>">
                                     </td>
                                     <td>
+                                    <!-- Update Quantity and Subtotal Form -->
+                                    <form action="update_qty_price.php" method="POST">
+                                    <input type="hidden" name="pid" value="<?php echo $row["productID"];?>">
                                     <?php echo $row["productID"]; ?>
                                     </td>
                                     <td>
                                     <?php echo $row["productName"]; ?>
                                     </td>
                                     <td>
-                                        <input type="number" value="<?php echo $row["quantity"]; ?>">
+                                        <input type="submit" name="decrement" value="-"/>
+                                        <input type="text" name="qty" value="<?php echo $row["quantity"]; ?>" min="1" maxlength="2">
+                                        <input type="submit" name="increment" value="+"/>
                                     </td>
                                     <td>
-                                    RM<?php echo $row["price"]; ?>
+                                    <span>RM<?php echo number_format($row["totalprice"], 2); ?></span>
                                     </td>
+                                    </form>
+                                    <!-- Delete Cart Item Form -->
+                                    <form action="delete_cart.php" method="POST">
                                     <td>
-                                    <form method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
+                                    <input type="hidden" name="pid" value="<?php echo $row["productID"];?>">
                                     <button type="submit" class="btn btn-danger" name="delete_cart">
                                     <i class="fa fa-trash-o fa-lg"></i> Delete
                                     </button>
-                                    </form>
                                     </td>
+                                    </form>
                                 </tr>
                                 <?php
                                 $totalprice += ($row["quantity"] * $row["price"]);
@@ -124,8 +131,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>Total: </td>
-                            <td>RM <?php echo number_format($totalprice, 2) ?></td>
+                            <td>Subtotal: </td>
+                            <td><span>RM <?php echo number_format($totalprice, 2) ?></span></td>
                             </tr>
                             <?php
                             echo "</table>";
@@ -142,30 +149,6 @@
             ?>
         </div>
         <?php
-            }
-
-            if(isset($_POST['delete_cart']))
-            {
-                $id = $_POST["id"];
-                $conn = mysqli_connect("localhost", "root", "", "pchub");
-                $sql = "DELETE FROM cart WHERE productID = '$id' and userID = '$username'";
-
-                $result = mysqli_query($conn, $sql);
-
-                if ($result == true)  {
-                    ?>
-                    <script> alert("Product removed from cart.")</script>
-        
-                    <?php
-                }else{
-                    ?>
-                    <script> alert("Failed to remove from cart")</script>
-                    <?php
-                }
-                ?>
-                <script> window.location.href="cart.php"; </script>
-                <?php
-                //header('Location: cart.php');
             }
         ?>
     </body>
