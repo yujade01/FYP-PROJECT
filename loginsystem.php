@@ -6,7 +6,7 @@
         echo 'Not Connected To Server';
     }
 
-    $username = $_POST['userID'];  
+    $username = $_POST['username'];  
     $password = $_POST['password']; 
 
     //to prevent from mysqli injection  
@@ -15,7 +15,7 @@
     // $username = mysqli_real_escape_string($conn, $username);  
     // $password = mysqli_real_escape_string($conn, $password);  
   
-    $sql = "SELECT * from account where userID = '$username' and userPassword = '$password'";  
+    $sql = "SELECT * from account where username = '$username' and userPassword = '$password'";  
     $result = mysqli_query($conn, $sql);    
     $count = mysqli_num_rows($result);  
     
