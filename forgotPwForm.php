@@ -27,7 +27,7 @@
 		<!-- form validation messages -->
 		<div class="form-group">
 			<label>Your Username</label>
-			<input type="text" name="username" maxlength="10">
+			<input type="text" name="username" maxlength="20">
 		</div>
 		<div class="form-group">
 			<label>Your New Password</label>
