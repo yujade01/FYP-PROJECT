@@ -22,7 +22,7 @@
         <?php
     }else{
         $conn = mysqli_connect("localhost", "root", "", "pchub");
-        $sql = "UPDATE cart set quantity = '$updated_qty' where userID = '$username' and productID = '$productID'";
+        $sql = "UPDATE cart set quantity = '$updated_qty' where Username = '$username' and productID = '$productID'";
 
         $result = mysqli_query($conn, $sql);
         
