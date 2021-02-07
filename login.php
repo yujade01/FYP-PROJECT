@@ -4,6 +4,7 @@
     $_SESSION["company"] = "PCHUB";
     $_SESSION["loggedin"] = false;
     $_SESSION["username"] = "GUEST";
+    $_SESSION["role"] = "Unknown";
 ?>
 <html>
 <head>
