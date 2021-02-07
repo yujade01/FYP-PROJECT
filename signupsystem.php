@@ -14,9 +14,9 @@
         $phone = $_POST['phone'];
         $address = $_POST['address'];
         
-        $search = "SELECT * from account where username='$username'";
+        $search = "SELECT * from account where Username='$username'";
         $search_result = mysqli_query($conn, $search);
-        $sql = "INSERT INTO `account` (`userID`, `username`, `userPassword`, `email`, `phone`, `house_address`) 
+        $sql = "INSERT INTO `account` (`userID`, `Username`, `userPassword`, `email`, `phone`, `house_address`) 
         VALUES ('', '$username', '$pwd', '$email', '$phone', '$address')";
         $result = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($search_result);

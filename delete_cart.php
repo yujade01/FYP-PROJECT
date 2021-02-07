@@ -4,9 +4,9 @@
     
     if(isset($_POST['delete_cart']))
     {
-        $id = $_POST["pid"];
+        $pid = $_POST["pid"];
         $conn = mysqli_connect("localhost", "root", "", "pchub");
-        $sql = "DELETE FROM cart WHERE productID = '$id' and userID = '$username'";
+        $sql = "DELETE FROM cart WHERE productID = '$pid' and Username = '$username'";
 
         $result = mysqli_query($conn, $sql);
 

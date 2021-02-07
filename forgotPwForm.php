@@ -26,8 +26,8 @@
 		<h2 class="form-title">Reset password</h2>
 		<!-- form validation messages -->
 		<div class="form-group">
-			<label>Your User ID</label>
-			<input type="text" name="userID" maxlength="10">
+			<label>Your Username</label>
+			<input type="text" name="username" maxlength="20">
 		</div>
 		<div class="form-group">
 			<label>Your New Password</label>

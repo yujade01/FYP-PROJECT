@@ -15,10 +15,9 @@
     // $username = mysqli_real_escape_string($conn, $username);  
     // $password = mysqli_real_escape_string($conn, $password);  
   
-    $sql = "SELECT * from account where username = '$username' and userPassword = '$password'";  
+    $sql = "SELECT * from account where Username = '$username' and userPassword = '$password'";  
     $result = mysqli_query($conn, $sql);    
-    $count = mysqli_num_rows($result);  
-    
+    $count = mysqli_num_rows($result);
     //check admin
     $admin_check = "SELECT * from `admin` where adminID = '$username' and adminPassword = '$password'";
     $check_result = mysqli_query($conn, $admin_check);    

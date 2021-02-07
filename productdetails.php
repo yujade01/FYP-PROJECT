@@ -1,6 +1,7 @@
 <?php 
 session_start();
-
+$role = $_SESSION["role"];
+$username = $_SESSION["username"];
 // Check to see the URL variable is set and that it exists in the database
     // Connect to the MySQL database
 
@@ -19,6 +20,7 @@ session_start();
         $row = mysqli_fetch_assoc($sql);
  	      $product_name = $row["productName"];
  	      $price = $row["productPrice"];
+        $stock = $row["quantity"];
         $details = $row["productDesc"]; 
         $category = $row['categoryID'];
         $imagePath = $row['imgDir'];
@@ -58,17 +60,27 @@ session_start();
         </div>
 
         <div>
+        <?php if($role == "Customer") { ?>
             <label for="quantity">Quantity:</label>
             <input type="number" id="quantity" name="quantity" value="1" min="1">
+        <?php } ?>
+        <?php if($role == "Admin") { ?>
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" value="<?php echo $stock ?>" min="1" disabled>
+        <?php } ?>
         </div>
 
         <div class="product-price">
           <input type="hidden" name="price" value="<?php echo $price; ?>"/>
           <p class = "price"><?php echo "RM ".$price; ?><br/><p>
         </div>
-
-          <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
+        <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
+        <?php if($role == "Customer") { ?>
           <input type="submit" class="but btn-danger" name="add_to_cart" id="button" value="Add to Shopping Cart" />
+         <?php } ?>
+         <?php if($role == "Admin") { ?>
+          <a href="update_product_form.php"><input type="button" id="updateProduct" class="but btn-primary" name="addBtn" value="UPDATE NOW"/></a><br/><br/>
+         <?php } ?>
       </form>
       </div>
   </main>
