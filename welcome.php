@@ -65,7 +65,6 @@
             <a href="uploadform.php"><input type="button" id="addProduct" class="but btn-primary" name="addBtn" value="ADD NOW"/></a><br/><br/>
             <label for="updateProduct">UPDATE EXISTING PRODUCT</label>
             <a href="update_product_form.php"><input type="button" id="updateProduct" class="but btn-primary" name="addBtn" value="UPDATE NOW"/></a><br/><br/>
-            <label for=""></label>
         </fieldset>
         <?php } ?>
     </div>
