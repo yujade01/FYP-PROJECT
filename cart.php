@@ -32,7 +32,15 @@
             padding: 12px 16px; /* Some padding */
             font-size: 16px; /* Set a font size */
             cursor: pointer; /* Mouse pointer on hover */
-            }        
+            }
+            .small-btn {
+            background-color: black; /* Blue background */
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            padding: 3px 10px; /* Some padding */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
+            }         
         </style>
     </head>
     <body>
@@ -71,9 +79,7 @@
                         <tr>
                             <td>
                             </td>
-                            <td>
-                                Product ID
-                            </td>
+                            <td></td>
                             <td>
                                 Product Name
                             </td>
@@ -98,15 +104,14 @@
                                     <!-- Update Quantity and Subtotal Form -->
                                     <form action="update_qty_price.php" method="POST">
                                     <input type="hidden" name="pid" value="<?php echo $row["productID"];?>">
-                                    <?php echo $row["productID"]; ?>
                                     </td>
                                     <td>
                                     <?php echo $row["productName"]; ?>
                                     </td>
                                     <td>
-                                        <input type="submit" name="decrement" value="-"/>
+                                        <input type="submit" class="small-btn btn-danger" name="decrement" value="-"/>
                                         <input type="text" name="qty" value="<?php echo $row["quantity"]; ?>" min="1" maxlength="2">
-                                        <input type="submit" name="increment" value="+"/>
+                                        <input type="submit" class="small-btn btn-success" name="increment" value="+"/>
                                     </td>
                                     <td>
                                     <span>RM<?php echo number_format($row["totalprice"], 2); ?></span>
