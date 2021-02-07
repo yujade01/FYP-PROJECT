@@ -31,7 +31,7 @@
         <form action="loginsystem.php" method="post">
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" name="userID" class="form-control" maxlength="10" required>
+                <input type="text" name="username" class="form-control" maxlength="10" required>
           
             </div>    
             <div class="form-group">
