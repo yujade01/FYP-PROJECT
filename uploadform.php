@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="prod_price">Product Price:</label>
+                        <label for="prod_price">Product Price: RM</label>
                         <input type="text" id="prod_price" name="prod_price" maxlength="10">
                     </div>
 
