@@ -39,7 +39,22 @@
         background-color: #286090;
         border-color: #204d74;
         }
-
+        .btn-success {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        }
+        .btn-success:focus,
+        .btn-success.focus {
+        color: #fff;
+        background-color: #449d44;
+        border-color: #255625;
+        }
+        .btn-success:hover {
+        color: #fff;
+        background-color: #449d44;
+        border-color: #398439;
+        }
         .btn-danger {
         color: #fff;
         background-color: #d9534f;
