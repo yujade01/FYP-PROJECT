@@ -46,6 +46,16 @@
         <h2 class="green">ALWAYS AVAILABLE FOR YOU</h2>
 
         <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">SHOP NOW ></button>
+        <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">VIEW NOW ></button>
+        <br/><br/><br/><br/>
+        <fieldset>
+        <legend style="margin:20px;">ADMIN CONTROL PANEL</legend>
+            <label for="addProduct">ADD NEW PRODUCT</label>
+            <a href="uploadform.php"><input type="button" id="addProduct" class="but btn-primary" name="addBtn" value="ADD NOW"/></a><br/><br/>
+            <label for="updateProduct">UPDATE EXISTING PRODUCT</label>
+            <a href="update_product_form.php"><input type="button" id="updateProduct" class="but btn-primary" name="addBtn" value="UPDATE NOW"/></a><br/><br/>
+            <label for=""></label>
+        </fieldset>
     </div>
     
     </body>
