@@ -24,7 +24,7 @@ session_start();
         if($count > 0)
         {  
             //update qty in existing record
-            $update_qty = "UPDATE cart set quantity = (quantity + '$quantity') WHERE userID = '$userid' and productID = '$prod_id'";
+            $update_qty = "UPDATE cart set quantity = (quantity + '$quantity') WHERE Username = '$username' and productID = '$prod_id'";
             $update_result = mysqli_query($conn, $update_qty); 
 
             //if update qty successfully
