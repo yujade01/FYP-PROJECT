@@ -1,6 +1,8 @@
 <?php
     session_start();
     $_SESSION["page"] = "Cart";
+    $role = $_SESSION["role"];
+    $username = $_SESSION["username"];
 ?>
 <html>
     <head>

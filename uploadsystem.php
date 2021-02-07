@@ -40,13 +40,13 @@ error_reporting(0);
        //check query
         if ($result == true)  {
           ?>
-          <script> alert("Product uploaded successfully")</script>
+          <script> alert("Product uploaded successfully"); window.location.href = "uploadform.php"</script>
 
           <?php
           
         }else{
           ?>
-          <script> alert("Failed to upload product")</script>
+          <script> alert("Failed to upload product"); window.location.href = "uploadform.php"</script>
           <?php
       }
   } 

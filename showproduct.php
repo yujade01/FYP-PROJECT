@@ -1,6 +1,8 @@
 <?php
     session_start();
     $_SESSION["page"] = "Product";
+    $role = $_SESSION["role"];
+    $username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html>

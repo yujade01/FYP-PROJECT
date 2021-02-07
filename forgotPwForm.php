@@ -40,7 +40,7 @@
 		</div>
 		<div class="form-group">
 			<button type="submit" name="reset-password" class="btn btn-primary">Reset Password</button>
-			<button type = "reset" value = "Reset btn" >Reset</button>
+			<button type="reset" name ="clear-btn" class="btn btn-danger" >Clear</button>
 		</div>
 	</form>
 </body>
