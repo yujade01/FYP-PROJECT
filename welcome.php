@@ -2,6 +2,7 @@
     session_start();
     $_SESSION["page"] = "Dashboard";
     $role = $_SESSION["role"];
+    $username = $_SESSION["username"];
 ?>
 <html>
     <head>
@@ -47,7 +48,7 @@
         <h2 class="green">ALWAYS AVAILABLE FOR YOU</h2>
 
         <!-- Show this button if role = customer -->
-        <?php if($role == "Customer") {?>
+        <?php if(($role == "Customer")||($username == "GUEST")) {?>
         <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">SHOP NOW ></button>
         <?php } ?>
         <!-- Show this button if role = admin -->
