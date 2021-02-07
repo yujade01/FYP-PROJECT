@@ -71,8 +71,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <a href="showproduct.php"><input type="button" class="btn btn-success" name="viewproduct" value="View Product"/></a>
-                    <button type="submit" name="submit" class="btn btn-primary">UPLOAD</button>
+                    <a href="showproduct.php"><input type="button" class="btn btn-primary" name="viewproduct" value="View Product"/></a>
+                    <button type="submit" name="submit" class="btn btn-danger">UPLOAD</button>
                 </div>
                 </fieldset>
             </form>
