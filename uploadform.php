@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="prod_name">Product Name:</label>
-                        <input type="text" id="prod_name" name="prod_name" maxlength="30">
+                        <input type="text" id="prod_name" name="prod_name" maxlength="50">
                     </div>
 
                     <div class="form-group">
@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" max="10">
+                        <input type="number" id="quantity" name="quantity" min="1" max="50">
                     </div>
 
                     <div class="form-group">
@@ -71,6 +71,7 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <a href="showproduct.php"><input type="button" class="btn btn-success" name="viewproduct" value="View Product"/></a>
                     <button type="submit" name="submit" class="btn btn-primary">UPLOAD</button>
                 </div>
                 </fieldset>
