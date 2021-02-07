@@ -1,6 +1,7 @@
 <?php 
 session_start();
-
+$role = $_SESSION["role"];
+$username = $_SESSION["username"];
 // Check to see the URL variable is set and that it exists in the database
     // Connect to the MySQL database
 
