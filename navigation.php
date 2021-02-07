@@ -151,6 +151,8 @@
     </a>
     </li>
     
+    <!--Show shopping cart if role = customer -->
+    <?php if(($role == "Customer")||($username == "GUEST")) {?>
     <li>
     <a href="cart.php">
     <div class = "icon">
@@ -160,9 +162,30 @@
     <div class="name"><span data-text = "Cart">Cart</span></div>
     </a>
     </li>
+    <?php } ?>
+    <!--END OF SHOPPING CART -->
+
+     <!--Show order if role = Admin -->
+    <?php if($role == "Admin") {?>
+    <li>
+    <a href="#">
+    <div class = "icon">
+    <i class="fa fa-clipboard-list" aria-hidden="true"></i>
+    <i class="fa fa-clipboard-list" aria-hidden="true"></i>
+    </div>
+    <div class="name"><span data-text = "Order">Order</span></div>
+    </a>
+    </li>
+    <?php } ?>
+    <!--END OF SHOPPING CART -->
+
+    <!-- Show Username -->
     <li>
         <p>Welcome, <?php echo $_SESSION["username"]; ?></p>
     </li>
+    <!-- END OF USERNAME-->
+
+    <!--LOGIN AND LOGOUT BUTTON -->
     <?php
         if($_SESSION['loggedin'] != true)
         {
@@ -179,8 +202,7 @@
             <?php
         }
     ?>
-    
-
+    <!--END OF LOGIN AND LOGOUT BUTTON-->
     </ul>
 
 </body>
