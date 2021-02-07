@@ -124,8 +124,9 @@
         
         <p>
           <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
+          <!-- For Admin Role only
           <input type="submit" name="edit" class="but btn-info" value="EDIT">
-          <input type="submit" name="delete" class="but btn-danger" value="DELETE">
+          <input type="submit" name="delete" class="but btn-danger" value="DELETE"> -->
         </p>
 
         </form>

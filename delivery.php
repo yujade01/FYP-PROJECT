@@ -19,7 +19,8 @@
     </head>
     <body>
     <?php include ('navigation.php'); ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>//jQuery Plugin
+    <!-- Jquery pluggin -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <?php 
     if(!empty($_GET['shipping'])){ $option = $_GET['shipping'];}
     else{ $option = '0';} //if no radio button is checked
