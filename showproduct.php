@@ -182,11 +182,9 @@
             <?php
               header('Location: showproduct.php');
         }
-    }  
-?>
-    <?php
     }
-    ?>
+  }
+?>
 
 </form>
 </body>
