@@ -2,6 +2,8 @@
     session_start();
     $_SESSION["page"] = "Checkout";
     $total = $_SESSION["total"];
+    $role = $_SESSION["role"];
+    $username = $_SESSION["username"];
 ?>
 <html>
     <head>
@@ -44,7 +46,7 @@
             <br/>
             Total: RM <?php echo number_format($total,2) ?>
             <br/><br/>
-            Shipping Costs:RM <span class="fee"><?php echo $option;?></span>
+            Shipping Costs:RM <span class="fee"><?php echo $option; $_SESSION["fee"] = $option; ?></span>
             <script>
                 $('input[type=radio]').click(function(e) {//jQuery works on clicking radio box
                     var value = $(this).val(); //Get the clicked checkbox value
