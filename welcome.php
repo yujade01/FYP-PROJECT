@@ -1,8 +1,6 @@
 <?php
-    session_start();
     $_SESSION["page"] = "Dashboard";
-    $role = $_SESSION["role"];
-    $username = $_SESSION["username"];
+    $_SESSION["company"]  = "PCHUB";
 ?>
 <html>
     <head>
