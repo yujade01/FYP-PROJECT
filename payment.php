@@ -1,6 +1,9 @@
 <?php
     session_start();
     $total = $_SESSION["total"];
+    $role = $_SESSION["role"];
+    $username = $_SESSION["username"];
+    $fee = $_SESSION["fee"]
 ?>
 <html>
     <head>
