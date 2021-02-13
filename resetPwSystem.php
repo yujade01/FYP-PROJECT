@@ -29,6 +29,8 @@
             <?php
         }
     }else{
-        echo "<h1>User ID does not exists.</h1>";
+        ?>
+            <script> alert("Username does not exists"); window.location.href = "login.php";</script>
+            <?php
     }
 ?>
