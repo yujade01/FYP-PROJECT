@@ -107,7 +107,7 @@
             </fieldset><br/>
 
             <a href="cart.php"><input type="button" class="but btn-primary" name="backtocartBtn" value="Back to Cart"></a>
-            <a href="payment.php"><input type="button" class="but btn-danger" name="continueBtn" value="Continue"></a>
+            <a href="payment.php"><input type="button" class="but btn-danger" name="continueBtn" value="Place Order"></a>
     </form>
         
     </body>
