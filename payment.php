@@ -12,6 +12,11 @@
             .center {
             text-align: center;
             }
+
+            .alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}
+            .alert h4{margin-top:0;color:inherit}
+            .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
+            .alert-info hr{border-top-color:#a6e1ec}
         </style>
     </head>
     <script>
@@ -39,7 +44,7 @@
             <label for="mastercard">Mastercard</label><br>
             </p>
 
-            <fieldset>
+            <fieldset class="alert alert-info">
             <p style="color:red;">Please fill all the required information</p>
             <label for="cardNum">Card Number</label>
             <input type="text" id="cardNum" name="cardNum" maxlength="16" required onkeypress="javascript:return isNumber(event)"/><br/><br/>
@@ -55,7 +60,7 @@
             </fieldset>
             <br/><br/>
 
-            <fieldset>
+            <fieldset class="alert alert-info">
             <p>AMOUNT</p>
             <br/>
             Total: RM <?php echo number_format($total, 2); ?>
