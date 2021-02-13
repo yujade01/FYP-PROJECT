@@ -60,8 +60,7 @@
 
                 $username = $_SESSION["username"];
                 $conn = mysqli_connect("localhost", "root", "", "pchub");
-                $query = "SELECT cart.imgDir, cart.productID, product.productName, cart.quantity, cart.price, cart.totalprice FROM cart 
-                INNER JOIN product on cart.productID = product.productID and cart.imgDir = product.imgDir where Username = '$username'";
+                $query = "SELECT * FROM cart WHERE Username = '$username'";
 
                 $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
                 $count = mysqli_num_rows($result);
