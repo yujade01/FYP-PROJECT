@@ -12,6 +12,10 @@
             .center {
             text-align: center;
             }
+            .form-group{
+                margin-bottom:15px;
+                width: 100%;
+            }
         </style>
     </head>
 
@@ -21,21 +25,30 @@
 
         <form action="signupsystem.php" method="POST">
             <br/><br/>
+            <div class="form-group">
             <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Eg: John" required>
-                <br><br>
+            </div>
+
+            <div class="form-group">
             <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Eg: FyP3@1" required>
-                <br><br>
+            </div>
+
+            <div class="form-group">
             <label for="email">Email Address:</label>
-                <input type="text" id="email" name="email" placeholder="Eg: john123@gmail.com" required>
-                <br><br>
+                <input type="email" pattern=".+@gmail.com" id="email" name="email" placeholder="Eg: john123@gmail.com" required>
+            </div>
+
+            <div class="form-group">
             <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone" placeholder="Eg: 0123456789" required/>
-                <br/><br/>
+                <input type="tel" id="phone" name="phone" placeholder="Eg: 0123456789" pattern="[0-9]{11}" required/>
+            </div>
+
+            <div class="form-group">
             <label for="address">House address:</label>
                 <input type="text" id="address" name="address" placeholder="Eg: 100, taman fyp, 32000 Selangor" required/>
-                <br/><br/>
+            </div>
                 <a href="login.php"><input type="button" class="btn btn-primary" name="back" value="BACK"></a>
                 <input type="submit" class="btn btn-success" name="signup" value="Signup"/>
         </form>
