@@ -1,9 +1,9 @@
 <?php
     session_start();
-    $total = $_SESSION["total"];
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
-    $fee = $_SESSION["fee"]
+    $total = $_SESSION["total"];
+    $fee = $_COOKIE['fee'];
 ?>
 <html>
     <head>
@@ -33,9 +33,9 @@
             <p>SELECT PAYMENT METHOD</p>
             <a href="#"><img src="visa-mastercard-logo.png" height="100px" width="500px"></a>
             <p>
-            <input type="radio" id="visa" name="payment" value="visa">
+            <input type="radio" id="visa" name="payment" value="visa" required>
             <label for="visa">Visa</label>
-            <input type="radio" id="mastercard" name="payment" value="mastercard">
+            <input type="radio" id="mastercard" name="payment" value="mastercard" required>
             <label for="mastercard">Mastercard</label><br>
             </p>
 
@@ -58,9 +58,9 @@
             <fieldset>
             <p>AMOUNT</p>
             <br/>
-            Total: RM <?php echo number_format($total,2) ?>
+            Total: RM <?php echo number_format($total, 2); ?>
             <br/><br/>
-            Shipping Costs:RM <span><?php echo $fee;?></span>
+            Shipping Costs:RM <span><?php echo number_format($fee, 2);?></span>
             <br/><br/>
             <?php
                 $payment = $total + $fee;
