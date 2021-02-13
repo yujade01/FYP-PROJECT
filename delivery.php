@@ -17,6 +17,10 @@
                 width: 400px;
                 margin:auto;
                 }
+            .alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}
+            .alert h4{margin-top:0;color:inherit}
+            .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
+            .alert-info hr{border-top-color:#a6e1ec}
         </style>
     </head>
     <body>
@@ -26,12 +30,41 @@
     <?php 
     if(!empty($_GET['shipping'])){ $option = $_GET['shipping'];}
     else{ $option = 0; $payment = $total; } //if no radio button is checked
-    ?>
-    <form class="center">
-        <br/><br/><br/><br/>
-        <p>1/SHOPPING CART <b>2/DELIVERY</b> 3/PAYMENT</p>
+    
+    //PRODUCT ARRAY
+    $grand_total = 0;
+    $allItems = '';
 
-            <fieldset>                     
+    //store product name and qty in an array
+    $items = array();
+
+    $conn = mysqli_connect("localhost", "root", "", "pchub");
+    $sql = "SELECT CONCAT(productName, '(',quantity,')') AS ItemQty,
+            totalprice FROM cart WHERE Username = '$username'";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while($row = $result->fetch_assoc())
+    {
+        $grand_total += $row['totalprice'];
+        $items[] = $row['ItemQty'];
+    }
+    //break the array into single string
+    $allItems = implode(", ", $items);
+    ?>
+    <br/>
+    <hr>
+    <div class="center alert alert-info">
+        <h4>Complete Your order!</h4>
+        <p><b>Your product(s): </b><?= $allItems ?></p>
+    </div>
+    <form class="center">
+        <br/><br/>
+        <p>1/SHOPPING CART <b>2/DELIVERY</b> 3/PAYMENT</p>
+        
+            <fieldset class="alert alert-info">                     
             <?php
                 $conn = mysqli_connect("localhost", "root", "", "pchub");
                 $query = "SELECT * from shipping";
@@ -51,9 +84,8 @@
             ?>
             </fieldset>
 
+            <fieldset class="alert alert-info">
             <p>AMOUNT</p>
-
-            <fieldset>
             <br/>
             Total: RM <?php echo $total; $_SESSION["total"] = $total; ?>
             <br/><br/>
