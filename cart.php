@@ -82,13 +82,13 @@
                             </td>
                             <td></td>
                             <td>
-                                Product Name
+                                <h4>Product Name</h4>
                             </td>
                             <td>
-                                Quantity
+                                <h4>Quantity</h4>
                             </td>
                             <td>
-                                Price
+                                <h4>Price</h4>
                             </td>
                             <td></td>
                         </tr>
@@ -137,8 +137,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>Subtotal: </td>
-                            <td><span>RM <?php echo number_format($totalprice, 2) ?></span></td>
+                            <td><h4>Subtotal: </h4></td>
+                            <td><h4><span>RM <?php echo number_format($totalprice, 2) ?></span></h4></td>
                             </tr>
                             <?php
                             echo "</table>";
