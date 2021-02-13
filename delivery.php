@@ -25,44 +25,57 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <?php 
     if(!empty($_GET['shipping'])){ $option = $_GET['shipping'];}
-    else{ $option = '0';} //if no radio button is checked
+    else{ $option = 0; $payment = $total; } //if no radio button is checked
     ?>
     <form class="center">
         <br/><br/><br/><br/>
         <p>1/SHOPPING CART <b>2/DELIVERY</b> 3/PAYMENT</p>
 
-            <fieldset>
-                <input type="radio" id="pick-up" name="shipping" value="0" onclick="Show()">
-                <label for="pick-up">Pick-Up in store, FREE</label><br/><br/>
-                <input type="radio" id="standard" name="shipping" value="6" onclick="Show()">
-                <label for="standard">Standard, RM6</label><br/><br/>
-                <input type="radio" id="express" name="shipping" value="12" onclick="Show()">
-                <label for="express">Express, RM12</label>
+            <fieldset>                     
+            <?php
+                $conn = mysqli_connect("localhost", "root", "", "pchub");
+                $query = "SELECT * from shipping";
+                $result = mysqli_query($conn, $query);
+
+                if($result == true)
+                {
+                    while($row = mysqli_fetch_array($result))
+                    {
+                    ?>
+                    <input type="radio" id="<?php echo $row["shipping_id"];?>" name="shipping" value="<?php echo $row["shipping_fee"];?>" onclick="Show()" 
+                    <?php echo ($row["shipping_id"]==1)?'checked':'' //checked if id == 1?>/>
+                    <label for="<?php echo $row["shipping_id"];?>"><?php echo $row["shipping_method"];?></label><br/><br/>
+            <?php
+                    }
+            }
+            ?>
             </fieldset>
 
             <p>AMOUNT</p>
 
             <fieldset>
             <br/>
-            Total: RM <?php echo number_format($total,2) ?>
+            Total: RM <?php echo $total; $_SESSION["total"] = $total; ?>
             <br/><br/>
-            Shipping Costs:RM <span class="fee"><?php echo $option; $_SESSION["fee"] = $option; ?></span>
+            Shipping Costs:RM <span class="fee"><?php echo $option;?></span>
+            <br/><br/>
+            Total Payment: RM <span class="payment"><?php echo $payment;?></span>
+            <br/><br/>
             <script>
                 $('input[type=radio]').click(function(e) {//jQuery works on clicking radio box
                     var value = $(this).val(); //Get the clicked checkbox value
-                    $('.fee').html(value);
+                    var fee = parseFloat(value);
+                    document.cookie = "fee = " + fee
+                    var total = parseFloat("<?php echo $total ?>");
+                    payment = total+fee;
+                    $('.fee').html(fee);
+                    $('.payment').html(payment);
                 });
             </script>
-            <br/><br/>
-            <?php
-                $payment = $total + $option;
-            ?>
-            Total Payment: RM <span><?php echo number_format($payment, 2);?></span>
-            <br/><br/>
             </fieldset><br/>
 
-            <input type="button" onclick="window.location.href='cart.php'" class="but btn-primary" name="backtocartBtn" value="Back to Cart">
-            <input type="button" onclick="window.location.href='payment.php'" class="but btn-danger" name="continueBtn" value="Continue">
+            <a href="cart.php"><input type="button" class="but btn-primary" name="backtocartBtn" value="Back to Cart"></a>
+            <a href="payment.php"><input type="button" class="but btn-danger" name="continueBtn" value="Continue"></a>
     </form>
         
     </body>
