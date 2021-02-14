@@ -18,11 +18,11 @@
                     <legend>New Product Info</legend>
                     <div style="display: inline-block; text-align: left;">
                         <div class="form-group">
-                            Select item want to update:
+                            <label for="prod_id">New Product Name:</label>
                             <?php
                             $conn = mysqli_connect('localhost' ,'root', '', 'pchub');
                             $sql="SELECT productID, productName FROM product"; 
-                            echo "<select name='prod_id' value=''></option>";
+                            echo "<select id='prod_id' name='prod_id' value=''></option>";
 
                             foreach ($conn->query($sql) as $row){//Array or records stored in $row
 
@@ -35,33 +35,33 @@
                         </div>
                             
                         <div class="form-group">
-                            New Product Name:
-                            <input type="text" name="new_prod_name" value="" maxlength="50" required>
+                            <label for="new_prod_name">New Product Name:</label>
+                            <input type="text" id="new_prod_name" name="new_prod_name" value="" maxlength="50" required>
                         </div>
 
                         <div class="form-group">
-                            New Product Price:
-                            <input type="text" name="new_prod_price" value="" maxlength="10" required>
+                            <label for="new_prod_price">New Product Price:</label>
+                            <input type="text" id="new_prod_price" name="new_prod_price" value="" maxlength="10" required>
                         </div>
 
                         <div class="form-group">
-                            New Quantity:
-                            <input type="number" name="new_quantity" value="" min="1" max="50" required>
+                            <label for="new_quantity">New Quantity:</label>
+                            <input type="number" id="new_quantity" name="new_quantity" value="" min="1" max="50" required>
                         </div>
 
                         <div class="form-group">
-                            New Product Description:
-                            <textarea name="new_prod_desc" rows="4" cols="50" value=""></textarea>
+                            <label for="new_quantity">New Quantity:</label>
+                            <textarea id="new_prod_desc" name="new_prod_desc" rows="4" cols="50" value=""></textarea>
                         </div>
                         <div class="form-group">
-                            Category:
+                        <label for="new_category">New Quantity:</label>
                             <?php
                             $conn = mysqli_connect('localhost' ,'root', '', 'pchub');
                             $sql="SELECT categoryID, categoryName FROM category"; 
 
                             /* You can add order by clause to the sql statement if the names are to be displayed in alphabetical order */
 
-                            echo "<select name='new_category' value=''>Student Name</option>"; // list box select command
+                            echo "<select id='new_category' name='new_category' value=''>Student Name</option>"; // list box select command
 
                             foreach ($conn->query($sql) as $row){//Array or records stored in $row
 

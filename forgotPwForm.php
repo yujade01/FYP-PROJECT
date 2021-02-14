@@ -27,15 +27,15 @@
 		<!-- form validation messages -->
 		<div class="form-group">
 			<label>Your Username</label>
-			<input type="text" name="username" maxlength="20">
+			<input type="text" name="username" maxlength="20" required/>
 		</div>
 		<div class="form-group">
 			<label>Your New Password</label>
-			<input type="password" name="newPw" id="newPw" maxlength="25" onkeyup='check();'>
+			<input type="password" name="newPw" id="newPw" maxlength="25" onkeyup='check();' required/>
 		</div>
 		<div class="form-group">
 			<label>Re-enter your New Password</label>
-			<input type="password" name="confirmPw" id="confirmPw" maxlength="25" onkeyup='check();'>
+			<input type="password" name="confirmPw" id="confirmPw" maxlength="25" onkeyup='check();' required/>
 			<span id="message"></span>
 		</div>
 		<div class="form-group">

@@ -11,6 +11,26 @@
     <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
     
     <script src="https://kit.fontawesome.com/22e170816e.js" crossorigin="anonymous"></script>
+    <style>
+      .back-button{
+        height : 40px;
+        margin: 20px;
+        display: inline-block;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+            touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    </style>
   </head>
 <body>
 
@@ -29,6 +49,7 @@
   <form action="showproduct.php" method="post">
 
 <div class="container">
+<a href="welcome.php" ><input type="button" class="back-button btn-primary" value="< BACK"></input></a>
   <div class = "search_wrap search_wrap_3">
     <div class="search_box">
       <input type="text" class="input" name="valueToSearch" placeholder="Search">
@@ -161,11 +182,9 @@
             <?php
               header('Location: showproduct.php');
         }
-    }  
-?>
-    <?php
     }
-    ?>
+  }
+?>
 
 </form>
 </body>

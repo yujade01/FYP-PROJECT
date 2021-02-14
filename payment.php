@@ -1,6 +1,9 @@
 <?php
     session_start();
+    $role = $_SESSION["role"];
+    $username = $_SESSION["username"];
     $total = $_SESSION["total"];
+    $fee = $_COOKIE['fee'];
 ?>
 <html>
     <head>
@@ -9,6 +12,11 @@
             .center {
             text-align: center;
             }
+
+            .alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}
+            .alert h4{margin-top:0;color:inherit}
+            .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
+            .alert-info hr{border-top-color:#a6e1ec}
         </style>
     </head>
     <script>
@@ -30,13 +38,13 @@
             <p>SELECT PAYMENT METHOD</p>
             <a href="#"><img src="visa-mastercard-logo.png" height="100px" width="500px"></a>
             <p>
-            <input type="radio" id="visa" name="payment" value="visa">
+            <input type="radio" id="visa" name="payment" value="visa" required>
             <label for="visa">Visa</label>
-            <input type="radio" id="mastercard" name="payment" value="mastercard">
+            <input type="radio" id="mastercard" name="payment" value="mastercard" required>
             <label for="mastercard">Mastercard</label><br>
             </p>
 
-            <fieldset>
+            <fieldset class="alert alert-info">
             <p style="color:red;">Please fill all the required information</p>
             <label for="cardNum">Card Number</label>
             <input type="text" id="cardNum" name="cardNum" maxlength="16" required onkeypress="javascript:return isNumber(event)"/><br/><br/>
@@ -52,12 +60,12 @@
             </fieldset>
             <br/><br/>
 
-            <fieldset>
+            <fieldset class="alert alert-info">
             <p>AMOUNT</p>
             <br/>
-            Total: RM <?php echo number_format($total,2) ?>
+            Total: RM <?php echo number_format($total, 2); ?>
             <br/><br/>
-            Shipping Costs:RM <span><?php echo $fee;?></span>
+            Shipping Costs:RM <span><?php echo number_format($fee, 2);?></span>
             <br/><br/>
             <?php
                 $payment = $total + $fee;

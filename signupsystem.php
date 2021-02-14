@@ -16,8 +16,8 @@
         
         $search = "SELECT * from account where Username='$username'";
         $search_result = mysqli_query($conn, $search);
-        $sql = "INSERT INTO `account` (`userID`, `Username`, `userPassword`, `email`, `phone`, `house_address`) 
-        VALUES ('', '$username', '$pwd', '$email', '$phone', '$address')";
+        $sql = "INSERT INTO `account` (`Username`, `userPassword`, `email`, `phone`, `house_address`) 
+        VALUES ('$username', '$pwd', '$email', '$phone', '$address')";
         $result = mysqli_query($conn, $sql);
         $count = mysqli_num_rows($search_result);
         if($count > 0)

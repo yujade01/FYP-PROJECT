@@ -75,6 +75,7 @@ $username = $_SESSION["username"];
           <p class = "price"><?php echo "RM ".$price; ?><br/><p>
         </div>
         <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
+        <input type="hidden" name="pname" id="pname" value="<?php echo $product_name ?>"/>
         <?php if($role == "Customer") { ?>
           <input type="submit" class="but btn-danger" name="add_to_cart" id="button" value="Add to Shopping Cart" />
          <?php } ?>
