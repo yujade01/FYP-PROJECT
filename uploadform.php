@@ -46,14 +46,14 @@
                         <textarea id="" id="prod_desc" name="prod_desc" rows="4" cols="50" placeholder="Write your description here...."></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="qty">Category:</label>
+                        <label for="category">Category:</label>
                         <?php
                         $conn = mysqli_connect('localhost' ,'root', '', 'pchub');
                         $sql="SELECT categoryID, categoryName FROM category"; 
 
                         /* You can add order by clause to the sql statement if the names are to be displayed in alphabetical order */
 
-                        echo "<select name='category' id='qty' value=''></option>"; // list box select command
+                        echo "<select name='category' id='category' value=''></option>"; // list box select command
 
                         foreach ($conn->query($sql) as $row){//Array or records stored in $row
 
