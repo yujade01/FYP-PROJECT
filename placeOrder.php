@@ -27,8 +27,8 @@
         }
         //insert into productorder table
         $sql = "INSERT INTO productorder (
-                `Username`, `email`, `phone`, `address`, `products`, `total_amount`, `shipping_method`, `orderDate`)
-                VALUES('$name', '$email', '$phone', '$address', '$products', '$grand_total', '$shipping_method', now())";
+                `Username`, `cust_name`, `email`, `phone`, `address`, `products`, `total_amount`, `shipping_method`, `orderDate`)
+                VALUES('$username', '$name', '$email', '$phone', '$address', '$products', '$grand_total', '$shipping_method', now())";
         $result = mysqli_query($conn, $sql);
 
         //message to display in invoice.php
