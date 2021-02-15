@@ -145,46 +145,21 @@
 
         </a>
         
-        <p>
           <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
-          <!-- For Admin Role only
-          <input type="submit" name="edit" class="but btn-info" value="EDIT">
-          <input type="submit" name="delete" class="but btn-danger" value="DELETE"> -->
-        </p>
-
         </form>
+        <p>
+          <!-- For Admin Role only -->
+          <?php if($role == "Admin") {?>
+          <form action="deleteItem.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+          <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
+            <a href="update_product_form.php"><input type="button" name="edit" class="but btn-info" value="EDIT"></a>
+            <input type="submit" name="delete" class="but btn-danger" value="DELETE">
+          </form>
+          <?php } ?>
+        </p>
       </div>
       </div>
-  
- <!-- Delete Function -->   
-<?php
-
-    if(isset($_POST['delete']))
-    {
-        $prod_id = $_POST['id'];
-
-        $conn = mysqli_connect("localhost", "root", "", "pchub");
-
-        $sql = "DELETE FROM product WHERE productID = '$prod_id'";
-
-        $result = mysqli_query($conn, $sql);
-
-        if ($result == 1)  {
-            ?>
-            <script> alert("Product deleted successfully")</script>
-  
-            <?php
-              header('Location: showproduct.php');
-            
-          }else{
-            ?>
-            <script> alert("Failed to delete product")</script>
-            <?php
-              header('Location: showproduct.php');
-        }
-    }
-  }
-?>
+  <?php } ?>
 
 </form>
 </body>
