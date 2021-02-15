@@ -60,8 +60,8 @@
             <input type="submit" class="but btn-danger" name="paybtn" value="Pay Now">
     </form>
     <script>
-            //Cancel Payment Confirm box
-            function cancelPayment() {
+        //Cancel Payment Confirm box
+        function cancelPayment() {
             var txt;
             var cancel = confirm("Are you sure want to cancel payment?");
                 if (cancel == true) {
@@ -71,6 +71,6 @@
                     return false;
                 }
             }
-            </script>
+    </script>
     </body>
 </html>
