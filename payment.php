@@ -62,7 +62,6 @@
     <script>
         //Cancel Payment Confirm box
         function cancelPayment() {
-            var txt;
             var cancel = confirm("Are you sure want to cancel payment?");
                 if (cancel == true) {
                     window.location.href = "welcome.php";

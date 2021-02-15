@@ -205,7 +205,6 @@
         <script>
             //Logout Confirm box
             function Logout() {
-            var txt;
             var logout = confirm("Are you sure want to log out?");
                 if (logout == true) {
                     window.location.href = "logout.php";
