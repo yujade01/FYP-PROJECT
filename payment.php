@@ -2,8 +2,8 @@
     session_start();
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
-    $total = $_SESSION["total"];
-    $fee = $_COOKIE['fee'];
+    //$total = $_SESSION["total"];
+    //$fee = $_COOKIE['fee'];
 ?>
 <html>
     <head>
@@ -35,7 +35,7 @@
         <br/><br/><br/><br/>
         <p>1/SHOPPING CART 2/DELIVERY <b>3/PAYMENT</b></p>
 
-            <p>SELECT PAYMENT METHOD</p>
+            <h4>PAY WITH CREDIT/DEBIT CARD</h4>
             <a href="#"><img src="visa-mastercard-logo.png" height="100px" width="500px"></a>
             <p>
             <input type="radio" id="visa" name="payment" value="visa" required>
@@ -43,8 +43,6 @@
             <input type="radio" id="mastercard" name="payment" value="mastercard" required>
             <label for="mastercard">Mastercard</label><br>
             </p>
-
-            <fieldset class="alert alert-info">
             <p style="color:red;">Please fill all the required information</p>
             <label for="cardNum">Card Number</label>
             <input type="text" id="cardNum" name="cardNum" maxlength="16" required onkeypress="javascript:return isNumber(event)"/><br/><br/>
@@ -60,21 +58,7 @@
             </fieldset>
             <br/><br/>
 
-            <fieldset class="alert alert-info">
-            <p>AMOUNT</p>
-            <br/>
-            Total: RM <?php echo number_format($total, 2); ?>
-            <br/><br/>
-            Shipping Costs:RM <span><?php echo number_format($fee, 2);?></span>
-            <br/><br/>
-            <?php
-                $payment = $total + $fee;
-            ?>
-            Total Payment: RM <span><?php echo number_format($payment, 2);?></span>
-            <br/><br/>
-            </fieldset><br/>
-
-            <input type="submit" onclick="window.location.href='delivery.php'" class="but btn-primary" name="backbtn" value="Back">
+            <a href="welcome.php"><input type="button" class="but btn-primary" name="cancelBtn" value="Cancel"></a>
             <input type="submit" class="but btn-danger" name="paybtn" value="Pay Now">
     </form>
         
