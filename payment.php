@@ -2,8 +2,6 @@
     session_start();
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
-    //$total = $_SESSION["total"];
-    //$fee = $_COOKIE['fee'];
 ?>
 <html>
     <head>
