@@ -203,7 +203,7 @@
         }
     ?>
         <script>
-            //Cancel Payment Confirm box
+            //Logout Confirm box
             function Logout() {
             var txt;
             var logout = confirm("Are you sure want to log out?");
