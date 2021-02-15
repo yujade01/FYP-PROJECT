@@ -56,9 +56,21 @@
             </fieldset>
             <br/><br/>
 
-            <a href="welcome.php"><input type="button" class="but btn-primary" name="cancelBtn" value="Cancel"></a>
+            <input type="button" onclick="cancelPayment()" class="but btn-primary" name="cancelBtn" value="Cancel">
             <input type="submit" class="but btn-danger" name="paybtn" value="Pay Now">
     </form>
-        
+    <script>
+            //Cancel Payment Confirm box
+            function cancelPayment() {
+            var txt;
+            var cancel = confirm("Are you sure want to cancel payment?");
+                if (cancel == true) {
+                    window.location.href = "welcome.php";
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            </script>
     </body>
 </html>
