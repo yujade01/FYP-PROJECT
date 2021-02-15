@@ -197,11 +197,24 @@
         }else{
             ?>
             <li>
-                <a href="logout.php"><input type="submit" class="but btn-danger" name="logoutBtn" value="LOGOUT"></a>
+                <input type="submit" onclick="Logout()" class="but btn-danger" name="logoutBtn" value="LOGOUT">
             </li>
             <?php
         }
     ?>
+        <script>
+            //Cancel Payment Confirm box
+            function Logout() {
+            var txt;
+            var logout = confirm("Are you sure want to log out?");
+                if (logout == true) {
+                    window.location.href = "logout.php";
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
     <!--END OF LOGIN AND LOGOUT BUTTON-->
     </ul>
 
