@@ -75,6 +75,21 @@
 </head>
 
 <body>
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "pchub");
+    $sql = "SELECT * FROM category";
+    $result = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_assoc($result))
+    {
+        //get category id
+        $cid[] = array(
+            "cid" => $row['categoryID'],
+            "cname" => $row['categoryName']
+        );
+    }
+    //check array
+    //print_r($cid);
+?>
     <ul>
 
     <li>
@@ -92,13 +107,16 @@
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[0]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[0]["cid"]; ?>" name = "laptop">
     <div class = "icon">
         <i class="fa fa-laptop" aria-hidden="true"></i>
         <i class="fa fa-laptop" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Laptop">Laptop</span></div>
     </a>
+    </form>
     </li>
 
     <li>
