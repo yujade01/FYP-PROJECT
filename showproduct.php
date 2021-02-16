@@ -65,7 +65,16 @@
 </div>
 
   <?php
-  if(isset ($_POST['search']))
+  //filter based on category
+   if(isset($_GET['cid']))
+   {
+       $cid = $_GET['cid'];
+       $conn = mysqli_connect("localhost", "root", "", "pchub");
+       $filterCat = "SELECT * FROM product WHERE categoryID = '$cid'";
+       $search_result = filterTable($filterCat);
+   }
+   //filter based on search
+  else if(isset ($_POST['search']))
   {
   $valueToSearch = $_POST['valueToSearch'];
  
@@ -74,28 +83,29 @@
   $search_result = filterTable($query);
 
   }
+  //filter based on product attribute (name, price)
   else if(isset($_POST['sort']))
   {
     //sort product name A-Z
     if(isset($_POST['sort1']) == "atoz")
     {
       $atoz = "SELECT * from product ORDER BY productName ASC";
-      $search_result = sortTable($atoz);
+      $search_result = filterTable($atoz);
     }
     else if(isset($_POST['sort2']) == 'ztoa')
     {
       $ztoa = "SELECT * from product ORDER BY productName DESC";
-      $search_result = sortTable($ztoa);
+      $search_result = filterTable($ztoa);
     }
     else if(isset($_POST['sort3']) == 'lowtohigh')
     {
       $lowtohigh = "SELECT * from product ORDER BY productPrice ASC";
-      $search_result = sortTable($lowtohigh);
+      $search_result = filterTable($lowtohigh);
     }
     else if(isset($_POST['sort4']) == 'hightolow')
     {
       $hightolow = "SELECT * from product ORDER BY productPrice DESC";
-      $search_result = sortTable($hightolow);
+      $search_result = filterTable($hightolow);
     }
     else
     {
@@ -103,9 +113,10 @@
       <center><p>You did not select any options for sorting.</p></center>
       </div>';
       $selectAll = "SELECT * from product";
-      $search_result = sortTable($selectAll);
+      $search_result = filterTable($selectAll);
     }
   }
+  //show all products
   else{
   $query = "SELECT * FROM `product`";
   $search_result = filterTable($query);
@@ -114,16 +125,9 @@
   //function to connect and execute the query
   function filterTable($query)
   {
-  $conn = mysqli_connect("localhost", "root", "", "pchub");
-  $filter_Result = mysqli_query($conn, $query);
-  return $filter_Result;
-  }
-
-  function sortTable($query)
-  {
     $conn = mysqli_connect("localhost", "root", "", "pchub");
-    $sort_result = mysqli_query($conn, $query);
-    return $sort_result;
+    $filter_Result = mysqli_query($conn, $query);
+    return $filter_Result;
   }
    
   //display database data
@@ -137,15 +141,12 @@
 
         <a href = "productdetails.php?id=<?php echo $row ['productID'] ?>" name = "details">
 
-        <p><input type="hidden" name="prodid" value="<?php echo $row["productID"];?>"></p>
-
         <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
         <h2><?php echo $row["productName"]; ?></h2>
         <p>RM<?php echo $row["productPrice"]; ?></p>
 
         </a>
         
-          <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
         </form>
         <p>
           <!-- For Admin Role only -->
