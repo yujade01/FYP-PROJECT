@@ -120,53 +120,68 @@
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[1]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[1]["cid"]; ?>" name = "monitor">
     <div class = "icon">
         <i class="fa fa-desktop" aria-hidden="true"></i>
         <i class="fa fa-desktop" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Monitor">Monitor</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[2]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[2]["cid"]; ?>" name = "mouse">
     <div class = "icon">
         <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
         <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Mouse">Mouse</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[3]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[3]["cid"]; ?>" name = "keyboard">
     <div class = "icon">
         <i class="fa fa-keyboard-o" aria-hidden="true"></i>
         <i class="fa fa-keyboard-o" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Keyboard">Keyboard</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[4]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[4]["cid"]; ?>" name = "printer">
     <div class = "icon">
     <i class="fa fa-print" aria-hidden="true"></i>
     <i class="fa fa-print" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Printer">Printer</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[5]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[5]["cid"]; ?>" name = "accessories">
     <div class = "icon">
     <i class="fa fa-hdd-o" aria-hidden="true"></i>
     <i class="fa fa-hdd-o" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Accessories">Accessories</span></div>
     </a>
+    </form>
     </li>
     
     <!--Show shopping cart if role = customer -->
