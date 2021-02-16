@@ -65,6 +65,7 @@
 </div>
 
   <?php
+  //filter based on category
    if(isset($_GET['cid']))
    {
        $cid = $_GET['cid'];
@@ -72,6 +73,7 @@
        $filterCat = "SELECT * FROM product WHERE categoryID = '$cid'";
        $search_result = filterTable($filterCat);
    }
+   //filter based on search
   else if(isset ($_POST['search']))
   {
   $valueToSearch = $_POST['valueToSearch'];
@@ -81,6 +83,7 @@
   $search_result = filterTable($query);
 
   }
+  //filter based on product attribute (name, price)
   else if(isset($_POST['sort']))
   {
     //sort product name A-Z
@@ -113,6 +116,7 @@
       $search_result = filterTable($selectAll);
     }
   }
+  //show all products
   else{
   $query = "SELECT * FROM `product`";
   $search_result = filterTable($query);
