@@ -7,10 +7,181 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
     <link rel="stylesheet" type="text/css" href= "showproduct.css">
     <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
     
     <script src="https://kit.fontawesome.com/22e170816e.js" crossorigin="anonymous"></script>
+
+    
+
+    <style>
+      body{
+        background-color: #eff0f4;
+      }
+
+      .content{
+        background-color: #afaafa; 
+        height: 400px;
+        width: 290px;
+        margin-left: 10px;
+        margin-top: -21px;
+      }
+
+      a:link {
+        text-decoration: none;
+        color: black;
+      }
+
+      a:visited {
+        text-decoration: none;
+        color:black;
+      }
+
+      a:active {
+        text-decoration: none;
+        color:black;
+      }
+
+      .column {
+        float: left;
+        width: 330px;
+        padding: 10px;
+        margin-top: 70px;
+        margin-right : 75px;
+        height: 390px;
+        text-align: center;
+      }
+
+      .column:hover{  
+        cursor: pointer;
+    } 
+
+    /*Clear floats after the columns */
+    .row{
+      margin-left: 190px; 
+    }
+
+    .prod{
+        height: 290px;
+        width: 290px;
+    } 
+
+    /* Search Bar */
+    .container .input{
+      border: 1;
+      outline: none;
+      color:black;
+      box-sizing: border-box;
+    }
+
+    .search_wrap{
+      width: 500px;
+      margin: 38px auto;
+    }
+
+    .search_wrap .search_box{
+      position: relative;
+      width: 500px;
+      height: 60px;
+    }
+
+    .search_wrap .search_box .input{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height:100%;
+      padding: 10px 20px;
+      border-radius: 3px;
+      font-size: 18px;
+    }
+
+    .search_wrap .search_box .btn{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 100%;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .search_wrap .search_box .btn.btn_common .fas{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .search_wrap.search_wrap_3 .search_box .input{
+      padding-right: 80px;
+    }
+
+    .search_wrap.search_wrap_3 .search_box .input{
+      border-radius: 50px;
+    }
+
+    .search_wrap.search_wrap_3 .search_box .btn{
+      right: 0;
+      border-radius: 55%; 
+    } 
+
+    .search{
+      cursor: pointer;
+      width: 60px;
+      height: 100%;
+      border-radius: 50%;
+      background: #7690da;
+    }
+
+    .search:hover{
+      background: #708bd2;
+
+    }
+    /* Button */
+    .but {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+          touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+
+    .btn-info {
+      color: #fff;
+      background-color: #5bc0de;
+      border-color: #46b8da;
+    }
+
+    .btn-warning {
+      color: #fff;
+      background-color: #f0ad4e;
+      border-color: #eea236;
+    }
+
+      .btn-danger {
+      color: #fff;
+      background-color: #d9534f;
+      border-color: #d43f3a;
+    }
+
+
+    </style>
+
+
   </head>
 <body>
 
@@ -118,10 +289,11 @@
 
         <p><input type="hidden" name="prodid" value="<?php echo $row["productID"];?>"></p>
 
+        <div class="content">
         <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
-        <h2><?php echo $row["productName"]; ?></h2>
-        <p>RM<?php echo $row["productPrice"]; ?></p>
-
+        <h5 class="name"><?php echo $row["productName"]; ?></h5>
+        <p class="price">RM<?php echo $row["productPrice"]; ?></p>
+        </div>
         </a>
         
         <p>
@@ -167,6 +339,8 @@
     }
     ?>
 
+
 </form>
 </body>
+
 </html>
