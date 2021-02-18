@@ -37,6 +37,11 @@
                 </div>
 
                 <div class="form-group">
+                <label for="cust_name">Your Name:</label>
+                    <input type="text" id="cust_name" name="cust_name" placeholder="Eg: John Wick" required>
+                </div>
+
+                <div class="form-group">
                 <label for="password">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Eg: FyP3@1" required>
                 </div>
