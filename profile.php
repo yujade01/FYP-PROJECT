@@ -31,7 +31,7 @@
         <div style="padding:0.01em 16px;">
         <h2>My Profile</h2>
         <div class="content">
-                <p><?php echo "Name : " .$row['name']."<br>"; ?></p>
+                <p><?php echo "Name : " .$row['cust_name']."<br>"; ?></p>
                 <p><?php echo "Email : " .$row['email']."<br>"; ?></p>
                 <p><?php echo "Phone : " .$row['phone']."<br>"; ?></p>
                 <p><?php echo "Address : " .$row['house_address']."<br>"; ?></p>
