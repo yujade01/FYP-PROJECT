@@ -31,10 +31,10 @@ $username = $_SESSION["username"];
 <!DOCTYPE html>
 <html>
 <head>
-
+  <link rel = "stylesheet" type="text/css" href="productdetails.css">
   <title><?php echo $product_name; ?></title>
 
-  <link rel = "stylesheet" type="text/css" href="productdetails.css">
+
 
 
 </head>
@@ -86,6 +86,7 @@ $username = $_SESSION["username"];
       </div>
   </main>
 
+  <?php include('footer.php')?>
 
 </body>
 </html>

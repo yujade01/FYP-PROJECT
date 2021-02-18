@@ -186,7 +186,7 @@
     
     <!--Show shopping cart if role = customer -->
     <?php if(($role == "Customer")||($username == "GUEST")) {?>
-    <li>
+    <li style="border-right: none;">
     <a href="cart.php">
     <div class = "icon">
     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -200,7 +200,7 @@
 
      <!--Show order if role = Admin -->
     <?php if($role == "Admin") {?>
-    <li>
+    <li style="border-left: 1px solid rgba(0,0,0,0.2)">
     <a href="#">
     <div class = "icon">
     <i class="fa fa-clipboard-list" aria-hidden="true"></i>
@@ -213,8 +213,8 @@
     <!--END OF SHOPPING CART -->
 
     <!-- Show Username -->
-    <li>
-        <p>Welcome, <?php echo $_SESSION["username"]; ?></p>
+    <li style = "font-weight: bold; font-size: 20px; margin-left: 140px; margin-top: 5px;">
+        <a href = "profile.php"><p><?php echo $_SESSION["username"]; ?></p></a>
     </li>
     <!-- END OF USERNAME-->
 
@@ -229,7 +229,8 @@
             <?php
         }else{
             ?>
-            <li>
+  
+            <li style="margin-top: 20px;">
                 <input type="submit" onclick="Logout()" class="but btn-danger" name="logoutBtn" value="LOGOUT">
             </li>
             <?php
