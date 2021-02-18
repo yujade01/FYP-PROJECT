@@ -75,6 +75,21 @@
 </head>
 
 <body>
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "pchub");
+    $sql = "SELECT * FROM category";
+    $result = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_assoc($result))
+    {
+        //get category id
+        $cid[] = array(
+            "cid" => $row['categoryID'],
+            "cname" => $row['categoryName']
+        );
+    }
+    //check array
+    //print_r($cid);
+?>
     <ul>
 
     <li>
@@ -92,63 +107,81 @@
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[0]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[0]["cid"]; ?>" name = "laptop">
     <div class = "icon">
         <i class="fa fa-laptop" aria-hidden="true"></i>
         <i class="fa fa-laptop" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Laptop">Laptop</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[1]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[1]["cid"]; ?>" name = "monitor">
     <div class = "icon">
         <i class="fa fa-desktop" aria-hidden="true"></i>
         <i class="fa fa-desktop" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Monitor">Monitor</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[2]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[2]["cid"]; ?>" name = "mouse">
     <div class = "icon">
         <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
         <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Mouse">Mouse</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[3]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[3]["cid"]; ?>" name = "keyboard">
     <div class = "icon">
         <i class="fa fa-keyboard-o" aria-hidden="true"></i>
         <i class="fa fa-keyboard-o" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Keyboard">Keyboard</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[4]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[4]["cid"]; ?>" name = "printer">
     <div class = "icon">
     <i class="fa fa-print" aria-hidden="true"></i>
     <i class="fa fa-print" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Printer">Printer</span></div>
     </a>
+    </form>
     </li>
 
     <li>
-    <a href="#">
+    <form action="showproduct.php" method="GET">
+    <input type="hidden" name="cid" value="<?php echo $cid[5]["cid"];?>">
+    <a href="showproduct.php?cid=<?php echo $cid[5]["cid"]; ?>" name = "accessories">
     <div class = "icon">
     <i class="fa fa-hdd-o" aria-hidden="true"></i>
     <i class="fa fa-hdd-o" aria-hidden="true"></i>
     </div>
     <div class="name"><span data-text = "Accessories">Accessories</span></div>
     </a>
+    </form>
     </li>
     
     <!--Show shopping cart if role = customer -->
@@ -196,12 +229,25 @@
             <?php
         }else{
             ?>
+  
             <li style="margin-top: 20px;">
-                <a href="logout.php"><input type="submit" class="but btn-danger" name="logoutBtn" value="LOGOUT"></a>
+                <input type="submit" onclick="Logout()" class="but btn-danger" name="logoutBtn" value="LOGOUT">
             </li>
             <?php
         }
     ?>
+        <script>
+            //Logout Confirm box
+            function Logout() {
+            var logout = confirm("Are you sure want to log out?");
+                if (logout == true) {
+                    window.location.href = "logout.php";
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
     <!--END OF LOGIN AND LOGOUT BUTTON-->
     </ul>
 

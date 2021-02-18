@@ -5,6 +5,7 @@ session_start();
     {
         $username = $_SESSION["username"];
         $prod_id = $_POST["pid"];
+        $prod_name = $_POST['pname'];
         $quantity = $_POST["quantity"];
         $price = $_POST["price"];
         $imgDir = $_POST["imgDir"];
@@ -18,7 +19,7 @@ session_start();
         $count = mysqli_num_rows($search_result);
 
         //insert into cart table
-        $sql = "INSERT INTO cart VALUES('', '$username', '$prod_id', '$quantity', '$price', '', '$imgDir')";
+        $sql = "INSERT INTO cart VALUES('', '$username', '$prod_id', '$prod_name', '$quantity', '$price', '', '$imgDir')";
 
         //if query found the row
         if($count > 0)

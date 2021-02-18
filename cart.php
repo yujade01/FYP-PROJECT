@@ -60,8 +60,7 @@
 
                 $username = $_SESSION["username"];
                 $conn = mysqli_connect("localhost", "root", "", "pchub");
-                $query = "SELECT cart.imgDir, cart.productID, product.productName, cart.quantity, cart.price, cart.totalprice FROM cart 
-                INNER JOIN product on cart.productID = product.productID and cart.imgDir = product.imgDir where Username = '$username'";
+                $query = "SELECT * FROM cart WHERE Username = '$username'";
 
                 $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
                 $count = mysqli_num_rows($result);
@@ -83,13 +82,13 @@
                             </td>
                             <td></td>
                             <td>
-                                Product Name
+                                <h4>Product Name</h4>
                             </td>
                             <td>
-                                Quantity
+                                <h4>Quantity</h4>
                             </td>
                             <td>
-                                Price
+                                <h4>Price</h4>
                             </td>
                             <td></td>
                         </tr>
@@ -138,8 +137,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>Subtotal: </td>
-                            <td><span>RM <?php echo number_format($totalprice, 2) ?></span></td>
+                            <td><h4>Subtotal: </h4></td>
+                            <td><h4><span>RM <?php echo number_format($totalprice, 2) ?></span></h4></td>
                             </tr>
                             <?php
                             echo "</table>";

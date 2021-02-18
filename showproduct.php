@@ -7,13 +7,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
-    <link rel="stylesheet" type="text/css" href= "showproduct.css">
     <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
     
     <script src="https://kit.fontawesome.com/22e170816e.js" crossorigin="anonymous"></script>
-
-    
 
     <style>
       body{
@@ -177,11 +173,27 @@
       background-color: #d9534f;
       border-color: #d43f3a;
     }
-
+      .back-button{
+          height : 40px;
+          margin: 20px;
+          display: inline-block;
+          padding: 6px 12px;
+          font-size: 14px;
+          font-weight: normal;
+          line-height: 1.42857143;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          -ms-touch-action: manipulation;
+              touch-action: manipulation;
+          cursor: pointer;
+          background-image: none;
+          border: 1px solid transparent;
+          border-radius: 4px;
+      }
 
     </style>
-
-
+  
   </head>
 <body>
 
@@ -200,6 +212,7 @@
   <form action="showproduct.php" method="post">
 
 <div class="container">
+<a href="welcome.php" ><input type="button" class="back-button btn-primary" value="< BACK"></input></a>
   <div class = "search_wrap search_wrap_3">
     <div class="search_box">
       <input type="text" class="input" name="valueToSearch" placeholder="Search">
@@ -215,7 +228,16 @@
 </div>
 
   <?php
-  if(isset ($_POST['search']))
+  //filter based on category
+   if(isset($_GET['cid']))
+   {
+       $cid = $_GET['cid'];
+       $conn = mysqli_connect("localhost", "root", "", "pchub");
+       $filterCat = "SELECT * FROM product WHERE categoryID = '$cid'";
+       $search_result = filterTable($filterCat);
+   }
+   //filter based on search
+  else if(isset ($_POST['search']))
   {
   $valueToSearch = $_POST['valueToSearch'];
  
@@ -224,28 +246,29 @@
   $search_result = filterTable($query);
 
   }
+  //filter based on product attribute (name, price)
   else if(isset($_POST['sort']))
   {
     //sort product name A-Z
     if(isset($_POST['sort1']) == "atoz")
     {
       $atoz = "SELECT * from product ORDER BY productName ASC";
-      $search_result = sortTable($atoz);
+      $search_result = filterTable($atoz);
     }
     else if(isset($_POST['sort2']) == 'ztoa')
     {
       $ztoa = "SELECT * from product ORDER BY productName DESC";
-      $search_result = sortTable($ztoa);
+      $search_result = filterTable($ztoa);
     }
     else if(isset($_POST['sort3']) == 'lowtohigh')
     {
       $lowtohigh = "SELECT * from product ORDER BY productPrice ASC";
-      $search_result = sortTable($lowtohigh);
+      $search_result = filterTable($lowtohigh);
     }
     else if(isset($_POST['sort4']) == 'hightolow')
     {
       $hightolow = "SELECT * from product ORDER BY productPrice DESC";
-      $search_result = sortTable($hightolow);
+      $search_result = filterTable($hightolow);
     }
     else
     {
@@ -253,9 +276,10 @@
       <center><p>You did not select any options for sorting.</p></center>
       </div>';
       $selectAll = "SELECT * from product";
-      $search_result = sortTable($selectAll);
+      $search_result = filterTable($selectAll);
     }
   }
+  //show all products
   else{
   $query = "SELECT * FROM `product`";
   $search_result = filterTable($query);
@@ -264,16 +288,9 @@
   //function to connect and execute the query
   function filterTable($query)
   {
-  $conn = mysqli_connect("localhost", "root", "", "pchub");
-  $filter_Result = mysqli_query($conn, $query);
-  return $filter_Result;
-  }
-
-  function sortTable($query)
-  {
     $conn = mysqli_connect("localhost", "root", "", "pchub");
-    $sort_result = mysqli_query($conn, $query);
-    return $sort_result;
+    $filter_Result = mysqli_query($conn, $query);
+    return $filter_Result;
   }
    
   //display database data
@@ -287,57 +304,27 @@
 
         <a href = "productdetails.php?id=<?php echo $row ['productID'] ?>" name = "details">
 
-        <p><input type="hidden" name="prodid" value="<?php echo $row["productID"];?>"></p>
-
-        <div class="content">
+         <div class="content">
         <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
         <h5 class="name"><?php echo $row["productName"]; ?></h5>
         <p class="price">RM<?php echo $row["productPrice"]; ?></p>
         </div>
         </a>
         
-        <p>
-          <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
-          <!-- For Admin Role only
-          <input type="submit" name="edit" class="but btn-info" value="EDIT">
-          <input type="submit" name="delete" class="but btn-danger" value="DELETE"> -->
-        </p>
-
         </form>
+        <p>
+          <!-- For Admin Role only -->
+          <?php if($role == "Admin") {?>
+          <form action="deleteItem.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+          <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
+            <a href="update_product_form.php"><input type="button" name="edit" class="but btn-info" value="EDIT"></a>
+            <input type="submit" name="delete" class="but btn-danger" value="DELETE">
+          </form>
+          <?php } ?>
+        </p>
       </div>
       </div>
-  
- <!-- Delete Function -->   
-<?php
-
-    if(isset($_POST['delete']))
-    {
-        $prod_id = $_POST['id'];
-
-        $conn = mysqli_connect("localhost", "root", "", "pchub");
-
-        $sql = "DELETE FROM product WHERE productID = '$prod_id'";
-
-        $result = mysqli_query($conn, $sql);
-
-        if ($result == 1)  {
-            ?>
-            <script> alert("Product deleted successfully")</script>
-  
-            <?php
-              header('Location: showproduct.php');
-            
-          }else{
-            ?>
-            <script> alert("Failed to delete product")</script>
-            <?php
-              header('Location: showproduct.php');
-        }
-    }  
-?>
-    <?php
-    }
-    ?>
+  <?php } ?>
 
 
 </form>

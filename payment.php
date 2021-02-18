@@ -1,6 +1,7 @@
 <?php
     session_start();
-    $total = $_SESSION["total"];
+    $role = $_SESSION["role"];
+    $username = $_SESSION["username"];
 ?>
 <html>
     <head>
@@ -9,6 +10,11 @@
             .center {
             text-align: center;
             }
+
+            .alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}
+            .alert h4{margin-top:0;color:inherit}
+            .alert-info{color:#31708f;background-color:#d9edf7;border-color:#bce8f1}
+            .alert-info hr{border-top-color:#a6e1ec}
         </style>
     </head>
     <script>
@@ -27,16 +33,14 @@
         <br/><br/><br/><br/>
         <p>1/SHOPPING CART 2/DELIVERY <b>3/PAYMENT</b></p>
 
-            <p>SELECT PAYMENT METHOD</p>
+            <h4>PAY WITH CREDIT/DEBIT CARD</h4>
             <a href="#"><img src="visa-mastercard-logo.png" height="100px" width="500px"></a>
             <p>
-            <input type="radio" id="visa" name="payment" value="visa">
+            <input type="radio" id="visa" name="payment" value="visa" required>
             <label for="visa">Visa</label>
-            <input type="radio" id="mastercard" name="payment" value="mastercard">
+            <input type="radio" id="mastercard" name="payment" value="mastercard" required>
             <label for="mastercard">Mastercard</label><br>
             </p>
-
-            <fieldset>
             <p style="color:red;">Please fill all the required information</p>
             <label for="cardNum">Card Number</label>
             <input type="text" id="cardNum" name="cardNum" maxlength="16" required onkeypress="javascript:return isNumber(event)"/><br/><br/>
@@ -52,23 +56,20 @@
             </fieldset>
             <br/><br/>
 
-            <fieldset>
-            <p>AMOUNT</p>
-            <br/>
-            Total: RM <?php echo number_format($total,2) ?>
-            <br/><br/>
-            Shipping Costs:RM <span><?php echo $fee;?></span>
-            <br/><br/>
-            <?php
-                $payment = $total + $fee;
-            ?>
-            Total Payment: RM <span><?php echo number_format($payment, 2);?></span>
-            <br/><br/>
-            </fieldset><br/>
-
-            <input type="submit" onclick="window.location.href='delivery.php'" class="but btn-primary" name="backbtn" value="Back">
+            <input type="button" onclick="cancelPayment()" class="but btn-primary" name="cancelBtn" value="Cancel">
             <input type="submit" class="but btn-danger" name="paybtn" value="Pay Now">
     </form>
-        
+    <script>
+        //Cancel Payment Confirm box
+        function cancelPayment() {
+            var cancel = confirm("Are you sure want to cancel payment?");
+                if (cancel == true) {
+                    window.location.href = "welcome.php";
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+    </script>
     </body>
 </html>
