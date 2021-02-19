@@ -15,13 +15,13 @@
         <h1>Update Product</h1>
             <form action="update_product_system.php" method="post" enctype="multipart/form-data">
                 <fieldset class="center">
-                    <legend>New Product Info</legend>
+                    <legend>Product Info</legend>
                     <div style="display: inline-block; text-align: left;">
                         <div class="form-group">
-                            <label for="prod_id">New Product Name:</label>
+                            <label for="prod_id">Choose product to update:</label>
                             <?php
                             $conn = mysqli_connect('localhost' ,'root', '', 'pchub');
-                            $sql="SELECT productID, productName FROM product"; 
+                            $sql="SELECT * FROM product"; 
                             echo "<select id='prod_id' name='prod_id' value=''></option>";
 
                             foreach ($conn->query($sql) as $row){//Array or records stored in $row
@@ -35,26 +35,26 @@
                         </div>
                             
                         <div class="form-group">
-                            <label for="new_prod_name">New Product Name:</label>
+                            <label for="new_prod_name">Product Name:</label>
                             <input type="text" id="new_prod_name" name="new_prod_name" value="" maxlength="50" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="new_prod_price">New Product Price:</label>
+                            <label for="new_prod_price">Product Price:</label>
                             <input type="text" id="new_prod_price" name="new_prod_price" value="" maxlength="10" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="new_quantity">New Quantity:</label>
+                            <label for="new_quantity">Quantity:</label>
                             <input type="number" id="new_quantity" name="new_quantity" value="" min="1" max="50" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="new_quantity">New Quantity:</label>
+                            <label for="new_prod_desc">Description:</label>
                             <textarea id="new_prod_desc" name="new_prod_desc" rows="4" cols="50" value=""></textarea>
                         </div>
                         <div class="form-group">
-                        <label for="new_category">New Quantity:</label>
+                        <label for="new_category">Category:</label>
                             <?php
                             $conn = mysqli_connect('localhost' ,'root', '', 'pchub');
                             $sql="SELECT categoryID, categoryName FROM category"; 
