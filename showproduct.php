@@ -316,8 +316,8 @@
           <!-- For Admin Role only -->
           <?php if($role == "Admin") {?>
           <form action="deleteItem.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
-          <input type="hidden" name="id" value="<?php echo $row["productID"];?>">
-            <a href="update_product_form.php"><input type="button" name="edit" class="but btn-info" value="EDIT"></a>
+          <input type="hidden" name="pid" value="<?php echo $row["productID"];?>"/>
+          <a href="editProduct.php?pid=<?php echo $row["productID"]; ?>"><input type="button" name="edit" class="but btn-info" value="EDIT" /></a>
             <input type="submit" name="delete" class="but btn-danger" value="DELETE">
           </form>
           <?php } ?>
