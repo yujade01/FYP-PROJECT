@@ -199,9 +199,9 @@
     <!--END OF SHOPPING CART -->
 
      <!--Show order if role = Admin -->
-    <?php if($role == "Admin") {?>
+    <?php if($role == "Admin" || $role == "Customer") {?>
     <li style="border-left: 1px solid rgba(0,0,0,0.2)">
-    <a href="#">
+    <a href="order.php">
     <div class = "icon">
     <i class="fa fa-clipboard-list" aria-hidden="true"></i>
     <i class="fa fa-clipboard-list" aria-hidden="true"></i>

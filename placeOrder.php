@@ -27,8 +27,8 @@
         }
         //insert into productorder table
         $sql = "INSERT INTO productorder (
-                `Username`, `cust_name`, `email`, `phone`, `address`, `products`, `total_amount`, `shipping_method`, `orderDate`)
-                VALUES('$username', '$name', '$email', '$phone', '$address', '$products', '$grand_total', '$shipping_method', now())";
+                `Username`, `cust_name`, `email`, `phone`, `address`, `products`, `total_amount`, `shipping_method`, `orderDate`, `status`)
+                VALUES('$username', '$name', '$email', '$phone', '$address', '$products', '$grand_total', '$shipping_method', now(), 'Unpaid')";
         $result = mysqli_query($conn, $sql);
 
         //message to display in invoice.php
@@ -43,7 +43,7 @@
                     <h4>Total: '.number_format($grand_total,2).'</h4>
                     <h4>Shipping method: '.$shipping_method.'</h4>
                 </div>';
-        if($result == true)
+        if($result)
         {   
             //deduct qty based on product id from array
             $length = count($items);
