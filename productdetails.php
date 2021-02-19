@@ -80,7 +80,10 @@ $username = $_SESSION["username"];
           <input type="submit" class="but btn-danger" name="add_to_cart" id="button" value="Add to Shopping Cart" />
          <?php } ?>
          <?php if($role == "Admin") { ?>
-          <a href="update_product_form.php"><input type="button" id="updateProduct" class="but btn-primary" name="addBtn" value="UPDATE NOW"/></a><br/><br/>
+          <form method="GET">
+          <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
+          <a href="editProduct.php?pid=<?php echo $id ?>"><input type="button" name="edit" class="but btn-primary" value="UPDATE" /></a><br/><br/>
+          </form>
          <?php } ?>
       </form>
       </div>

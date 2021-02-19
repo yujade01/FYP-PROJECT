@@ -22,7 +22,16 @@
             .alert-info hr{border-top-color:#a6e1ec}
         </style>
     </head>
+    <script>
+    // WRITE THE VALIDATION SCRIPT.
+    function isNumber(evt) {
+        var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+        if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+            return false;
 
+        return true;
+    }    
+    </script>
     <body>
     <div class="center">
         <h1>Hello, Welcome to Signup Page</h1>
@@ -53,7 +62,7 @@
 
                 <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Eg: 0123456789" pattern="[0-9]{11}" required/>
+                    <input type="tel" id="phone" name="phone" placeholder="Eg: 0123456789" pattern="[0-9]{11}" onkeypress="javascript:return isNumber(event)" required/>
                 </div>
 
                 <div class="form-group">
