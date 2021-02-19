@@ -223,14 +223,14 @@
         if($_SESSION['loggedin'] != true)
         {
             ?>
-            <li>
+            <li style="margin-top: 20px; border-right: none;">
                 <a href="login.php"><input type="submit" class="but btn-primary" name="loginBtn" value="LOGIN"></input></a>
             </li>
             <?php
         }else{
             ?>
   
-            <li style="margin-top: 20px;">
+            <li style="margin-top: 20px; border-right: none; margin-left: 30px;">
                 <input type="submit" onclick="Logout()" class="but btn-danger" name="logoutBtn" value="LOGOUT">
             </li>
             <?php
