@@ -55,16 +55,28 @@ p{
     <form action="" method="post" enctype="multipart/form-data">
     <div style="padding:0.01em 16px;">
         <h2>Update Profile</h2>    
-        <div class="content">                    
-            <p>Name:<input type="text" name="name" value="" maxlength="50" required></p>
+        <div class="content">  
+        <?php
+            $username = $_SESSION["username"];  
+            $conn = mysqli_connect("localhost", "root", "", "pchub");
+            $sql = "SELECT * from account where Username = '$username'";
 
-            <p>Email:<input type="email" name="email" value="" required></p>
+            $result = mysqli_query($conn, $sql);
 
-            <p>Phone Number:<input type="text" name="phonenum" value=""  required></p>
+            while($row = mysqli_fetch_assoc($result)){  
+                ?>                
+            <p>Name:<input type="text" name="name" value="<?php echo $row['cust_name'] ?>" maxlength="50" required></p>
 
-            <p>Address:<textarea name="address" rows="4" cols="50" value=""></textarea></p>
+            <p>Email:<input type="email" name="email" value="<?php echo $row['email'] ?>" required></p>
 
+            <p>Phone Number:<input type="text" name="phonenum" value="<?php echo $row['phone'] ?>"  required></p>
 
+            <p>Address:<input type="text" name="address" size="60" value="<?php echo $row['house_address']?>"></p>
+            
+            <?php
+            }
+            ?>
+            
             <br><br>
             <button class = "update" type="submit" name="update" class="btn btn-danger">UPDATE</button>
 
