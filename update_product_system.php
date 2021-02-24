@@ -20,7 +20,7 @@ if (isset($_POST['update'])) {
     //check query
     if ($result == true)  {
         ?>
-        <script> alert("Product uploaded successfully"); window.location.href="showproduct.php";</script>
+        <script> alert("Product updated successfully"); window.location.href="showproduct.php";</script>
         <?php
     }else{ 
         ?>

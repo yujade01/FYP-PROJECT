@@ -83,7 +83,7 @@
                 $conn = mysqli_connect("localhost", "root", "", "pchub");
                 $query = "SELECT * from shipping";
                 $result = mysqli_query($conn, $query);
-
+                $working_days = "";
                 if($result == true)
                 {
                     ?>
@@ -92,10 +92,20 @@
                     <?php
                     while($row = mysqli_fetch_array($result))
                     {
+                        if($row["shipping_id"] == 1)
+                        {
+                            $working_days = "(FREE)";
+                        }else if($row["shipping_id"] == 2)
+                        {
+                            $working_days = "(6 - 8 working days)";
+                        }else if($row["shipping_id"] == 3)
+                        {
+                            $working_days = "(2 - 3 working days)";
+                        }
                     ?>
                     <input type="radio" id="<?php echo $row["shipping_id"];?>" name="shipping" value="<?php echo $row["shipping_fee"];?>" onclick="Show()" 
                     <?php echo ($row["shipping_id"]==1)?'checked':'' //checked if id == 1?>/>
-                    <label for="<?php echo $row["shipping_id"];?>"><?php echo $row["shipping_method"];?></label><br/><br/>
+                    <label for="<?php echo $row["shipping_id"];?>"><?php echo $row["shipping_method"]; echo " "; echo $working_days;?></label><br/><br/>
             <?php
                     }
                 ?>
