@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $_SESSION["page"] = "Invoice";
     $msg = $_SESSION['invoice'];
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
@@ -8,7 +7,7 @@
 
 <html>
     <head>
-        <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+        <title>Invoice | <?php echo $_SESSION["company"] ?></title>
 
         <style>
             .center {

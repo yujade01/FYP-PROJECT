@@ -1,13 +1,12 @@
 <?php
     session_start();
-    $_SESSION["page"] = "Product";
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+    <title>Product | <?php echo $_SESSION["company"] ?></title>
     
     <script src="https://kit.fontawesome.com/22e170816e.js" crossorigin="anonymous"></script>
 
