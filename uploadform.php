@@ -19,7 +19,7 @@
         <h1>Upload New Product</h1>
             <form action="uploadsystem.php" method="post" enctype="multipart/form-data">
                 <fieldset class="center">
-                <legend>Personal Info</legend>
+                <legend>Product Info</legend>
                 <div style="display: inline-block; text-align: left;">
                     <div class="form-group">
                         <label for="prod_id">Product ID:</label>
