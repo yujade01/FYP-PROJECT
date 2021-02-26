@@ -1,13 +1,12 @@
 <?php
     session_start();
-    $_SESSION["page"] = "Product";
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-    <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+    <title>Product | <?php echo $_SESSION["company"] ?></title>
 
     <style>
         table {

@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $_SESSION["page"] = "Login";
     $_SESSION["company"] = "PCHUB";
     $_SESSION["loggedin"] = false;
     $_SESSION["username"] = "GUEST";
@@ -8,7 +7,7 @@
 ?>
 <html>
 <head>
-    <title> <?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+    <title> Login | <?php echo $_SESSION["company"] ?></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }

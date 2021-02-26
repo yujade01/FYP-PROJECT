@@ -1,11 +1,10 @@
 <?php
     session_start();
-    $_SESSION["page"] = "Signup Form";
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+        <title>Signup Form | <?php echo $_SESSION["company"] ?></title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 
         <style>

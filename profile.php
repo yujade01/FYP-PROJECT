@@ -1,14 +1,13 @@
 
 <?php
     session_start();
-    $_SESSION["page"] = "Profile";
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo $_SESSION["page"] ?></title>
+    <title>Profile</title>
 
     <link rel="stylesheet" type="text/css" href="profile.css">
 

@@ -1,13 +1,12 @@
 <?php
     session_start();
-    $_SESSION["page"] = "Checkout";
     $total = $_SESSION["total"];
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
 ?>
 <html>
     <head>
-        <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
+        <title>Checkout | <?php echo $_SESSION["company"] ?></title>
         <style>
             .center {
                 text-align: center;

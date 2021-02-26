@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $_SESSION["page"] = "Update Profile";
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
 ?>
