@@ -28,7 +28,7 @@
 
                     <div class="form-group">
                         <label for="prod_name">Product Name:</label>
-                        <input type="text" id="prod_name" name="prod_name" maxlength="50">
+                        <input type="text" id="prod_name" name="prod_name" maxlength="256">
                     </div>
 
                     <div class="form-group">
