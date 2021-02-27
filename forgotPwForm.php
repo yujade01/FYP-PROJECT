@@ -1,7 +1,7 @@
 <?php
     session_start();
 ?>
-
+<!DOCTYPE HTML>
 <html>
 <head>
 	<title>Password Reset Form | <?php echo $_SESSION["company"] ?></title>
@@ -103,7 +103,6 @@
         }
 
 		.form-control{
-            font-family: Poppins-Medium;
             font-size: 20px;
             line-height: 1.5;
             color: #666666;
@@ -115,6 +114,7 @@
         }
 
 		.fas{
+            position: absolute;
             margin-top: -36px;
             margin-left:30px;
             color: grey;
