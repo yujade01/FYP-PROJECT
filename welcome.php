@@ -4,13 +4,29 @@
     $role = $_SESSION["role"];
     $username = $_SESSION["username"];
 ?>
+<!DOCTYPE HTML>
 <html>
     <head>
         <title><?php echo $_SESSION["page"] ?> | <?php echo $_SESSION["company"] ?></title>
-    </head>
+        <link href='https://fonts.googleapis.com/css?family=Faster One' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Prosto One' rel='stylesheet'>
+
     <style>
-        .green {
-            color: green;
+
+        body{
+            height: 100%;
+        }
+
+        .text1{
+            font-family: 'Prosto One';
+            font-size: 60px;
+            color: #72bcd4;
+        }
+
+        .text2{
+            color: purple;
+            font-family: 'Faster One';
+            font-size: 50px;
         }
         .center {
             text-align: center;
@@ -26,7 +42,7 @@
         white-space: nowrap;
         vertical-align: middle;
         -ms-touch-action: manipulation;
-            touch-action: manipulation;
+        touch-action: manipulation;
         cursor: pointer;
         border: 1px solid transparent;
         border-radius: 4px;
@@ -35,25 +51,85 @@
         color: yellow;
         font-weight: bold;
         }
-        .but:hover {
-            background-color: blue;
 
+       .bg{
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            height: 760px;
+            background-repeat: no-repeat;
+            background-size: contain;
         }
+
+        .container {
+            width: auto;
+            margin: auto;
+            }
+
+        .butn {
+            position: relative;
+            letter-spacing: 0.25em;
+            margin: 0 auto;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            outline: none;
+            font-size: 28px;
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .butn::after, .butn::before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            transform: skewX(30deg);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: -2;
+        }
+
+            .butn::before {
+            background-color: #603F83FF;
+            top: -1rem;
+            left: 0rem;
+        }
+
+            .butn::after {
+            background-color: #C7D3D4FF;
+            top: 1rem;
+            left: 8rem;
+        }
+
+            .butn:hover::before, .butn:hover::after {
+            top: 0;
+            transform: skewx(0deg);
+        }
+
+            .butn:hover::after {
+            left: 0rem;
+        }
+
+            .butn:hover::before {
+            left: 8.75rem;
+        }
+
+
     </style>
-    <body>
+    </head>
+    <body class="bg">
     <?php include ('navigation.php');?>
     <br/><br/><br/><br/>
     <div class="center">
-        <h1>PC HUB</h1>
-        <h2 class="green">ALWAYS AVAILABLE FOR YOU</h2>
-
+        <h1 class="text1">PC HUB</h1>
+        <h2 class="text2">ALWAYS AVAILABLE FOR YOU</h2>
+    
         <!-- Show this button if role = customer -->
         <?php if(($role == "Customer")||($username == "GUEST")) {?>
-        <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">SHOP NOW ></button>
+        <!-- <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">SHOP NOW ></button> -->
+        <div class="container"><a class="butn" href="showproduct.php">SHOP NOW</a></div>
         <?php } ?>
         <!-- Show this button if role = admin -->
         <?php if($role == "Admin") {?>
-        <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">VIEW NOW ></button>
+        <!-- <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">VIEW NOW ></button> -->
+        <div class="container"><a class="butn" href="showproduct.php">VIEW NOW</a></div>
         <?php } ?>
 
         <br/><br/><br/><br/>

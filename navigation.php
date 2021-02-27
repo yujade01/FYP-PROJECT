@@ -213,7 +213,7 @@
     <!--END OF SHOPPING CART -->
 
     <!-- Show Username -->
-    <li style = "font-weight: bold; font-size: 20px; margin-left: 140px; margin-top: 5px;">
+    <li style = "font-weight: bold; font-size: 20px; margin-top: 5px;">
         <a href = "profile.php"><p><?php echo $_SESSION["username"]; ?></p></a>
     </li>
     <!-- END OF USERNAME-->

@@ -110,7 +110,7 @@
 
         .fa{
             position: absolute;
-            margin-top: -120px;
+            margin-top: -130px;
             margin-left:20px;
             color: grey;
             font-size: 20px;
@@ -183,32 +183,32 @@
             <span class="signuptitle">Signup</span>
         
                 <div class="form-group1 g1">
-                    <input type="text" id="username" name="username" class="form-control" maxlength="10" placeholder="Eg: John" required>
+                    <input type="text" id="username" name="username" class="form-control" maxlength="10" placeholder="Username" required>
                     <i class="fas fa-user"></i>
                 </div>
 
                 <div class="form-group1 g1">
-                    <input type="text" id="cust_name" name="cust_name" class="form-control" placeholder="Eg: John Wick" required>
+                    <input type="text" id="cust_name" name="cust_name" class="form-control" placeholder="Full Name" required>
                     <i class="fas fa-user-circle"></i>
                 </div>
 
                 <div class="form-group1 g1">
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Eg: FyP3@1" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                     <i class="fas fa-lock"></i>
                 </div>
 
                 <div class="form-group1 g1">
-                    <input type="email" pattern=".+@gmail.com" id="email" name="email" class="form-control" placeholder="Eg: john123@gmail.com" required>
+                    <input type="email" pattern=".+@gmail.com" id="email" name="email" class="form-control" placeholder="Email" required>
                     <i class="fas fa-envelope"></i>
                 </div>
 
                 <div class="form-group1 g1">
-                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Eg: 0123456789" pattern="[0-9]{11}" onkeypress="javascript:return isNumber(event)" required/>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Phone Number" pattern="[0-9]{11}" maxlength="11" onkeypress="javascript:return isNumber(event)" required/>
                     <i class="fas fa-phone"></i>
                 </div>
 
                 <div class="form-group1 g1">
-                    <textarea id="address" name="address" class="form-control" placeholder="Eg: 100, taman fyp, 32000 Selangor" rows="4" cols="20" required></textarea>
+                    <textarea id="address" name="address" class="form-control" placeholder="Address" rows="4" cols="20" required></textarea>
                     <i class="fa fa-home"></i>
                 </div>
                        
