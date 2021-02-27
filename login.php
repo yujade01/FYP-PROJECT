@@ -51,10 +51,6 @@
             width: 1000px;
             background: white;
             border-radius: 10px;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -moz-box;
-            display: -ms-flexbox;
             overflow: hidden;
             display: flex;
             flex-wrap: wrap;
@@ -158,10 +154,6 @@
             color: #666666;
         }
 
-        .text-center {
-            text-align: center;
-        }
-
         .p-t-136 {
             padding-top: 136px;
         }
@@ -195,10 +187,6 @@
             <div class="containerbtn">
                 <button type="submit" name="login" class="btn btn-primary">Login</button>
             </div>
-
-            <!-- <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
-            <p>Forgot Password? <a href="forgotPWForm.php">Reset Password now</a>.</p>
-            <p><a href="welcome.php">Continue as GUEST -></a></p> -->
 
             <div class="text-center p-t-12">
                 <span class="txt1">Forgot</span>
