@@ -1,5 +1,5 @@
 <html>
-<fieldset>
+<fieldset style="background-color: white;">
     <dl">
         <dt><label for="sort">Sorting:</label></dt>
         <dd>

@@ -12,7 +12,8 @@
 
     <style>
       body{
-        background-color: #eff0f4;
+        background: linear-gradient(-135deg, #c850c0, #4158d0);
+        background-size: cover;
       }
 
       .content{
@@ -21,6 +22,7 @@
         width: 290px;
         margin-left: 10px;
         margin-top: -21px;
+        border-radius: 25px;
       }
 
       a:link {
@@ -60,6 +62,7 @@
     .prod{
         height: 290px;
         width: 290px;
+        border-radius: 25px 25px 0 0;
     } 
 
     /* Search Bar */
@@ -184,7 +187,7 @@
           white-space: nowrap;
           vertical-align: middle;
           -ms-touch-action: manipulation;
-              touch-action: manipulation;
+          touch-action: manipulation;
           cursor: pointer;
           background-image: none;
           border: 1px solid transparent;
