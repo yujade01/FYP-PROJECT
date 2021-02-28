@@ -17,7 +17,7 @@
 
     <?php include ('navigation.php');?>
     <?php
-        if($_SESSION["loggedin"] == true){
+        if($_SESSION["loggedin"] == true && $role == "Customer"){
             $username = $_SESSION["username"];  
             $conn = mysqli_connect("localhost", "root", "", "pchub");
             $sql = "SELECT * from account where Username = '$username'";
@@ -27,7 +27,7 @@
             while($row = mysqli_fetch_assoc($result)){
         ?>
         <form>
-        <div style="padding:0.01em 16px;">
+        <div style="padding:0.01em 16px; min-height:56vh;">
         <h2>My Profile</h2>
         <div class="content">
                 <p><?php echo "Name : " .$row['cust_name']."<br>"; ?></p>
@@ -43,8 +43,22 @@
         </form>
     <?php
             }
+        }else if($role == "Admin")
+        {
+            ?>
+        <div style="padding:0.01em 16px; min-height:56vh;">
+        <h2>My Profile</h2>
+        <div class="content">
+                <p><?php echo "Username : " .$username."<br>"; ?></p>
+                <p><?php echo "Email : pchubest2020@gmail.com <br>"; ?></p>
+                <p><?php echo "Phone : 03-1234567 <br>"; ?></p>
+                <p><?php echo "Address : 21 Revolution Street Selangor, Malaysia<br>"; ?></p>
+                <br>
+        </div>
+        </div>
+            <?php
         }
     ?>
-  <?php //include('footer.php')?>
+  <?php include('footer.php')?>
 </body>
 </html>

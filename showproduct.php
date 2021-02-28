@@ -211,23 +211,24 @@
   </script>
 
 <?php include ('navigation.php');?>
+<div style="min-height:450vh;">
   <form action="showproduct.php" method="post">
 
-<div class="container">
-<a href="welcome.php" ><input type="button" class="back-button btn-primary" value="< BACK"></input></a>
-  <div class = "search_wrap search_wrap_3">
-    <div class="search_box">
-      <input type="text" class="input" name="valueToSearch" placeholder="Search">
-      <div class= "btn btn_common">
-      <button name="search" class= "search"><i class="fas fa-search"></i></button>
+    <div class="container">
+      <a href="welcome.php" ><input type="button" class="back-button btn-primary" value="< BACK"></input></a>
+      <div class = "search_wrap search_wrap_3">
+        <div class="search_box">
+          <input type="text" class="input" name="valueToSearch" placeholder="Search">
+          <div class= "btn btn_common">
+            <button name="search" class= "search"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <br/>
+        <div>
+            <?php include ('sort.php')?>
+        </div>
       </div>
     </div>
-    <br/>
-    <div>
-      <?php include ('sort.php')?>
-    </div>
-  </div>
-</div>
 
   <?php
   //filter based on category
@@ -304,32 +305,32 @@
       <div class="column" >
         <form action="productdetails.php" method="GET">
 
-        <a href = "productdetails.php?id=<?php echo $row ['productID'] ?>" name = "details">
+          <a href = "productdetails.php?id=<?php echo $row ['productID'] ?>" name = "details">
 
-         <div class="content">
-        <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
-        <h5 class="name"><?php echo $row["productName"]; ?></h5>
-        <p class="price">RM<?php echo $row["productPrice"]; ?></p>
-        </div>
-        </a>
+          <div class="content">
+          <img class = "prod" src = "<?php echo $row["imgDir"]; ?>">
+          <h5 class="name"><?php echo $row["productName"]; ?></h5>
+          <p class="price">RM<?php echo $row["productPrice"]; ?></p>
+          </div>
+          </a>
         
         </form>
         <p>
           <!-- For Admin Role only -->
           <?php if($role == "Admin") {?>
           <form action="deleteItem.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
-          <input type="hidden" name="pid" value="<?php echo $row["productID"];?>"/>
-          <a href="editProduct.php?pid=<?php echo $row["productID"]; ?>"><input type="button" name="edit" class="but btn-info" value="EDIT" /></a>
-            <input type="submit" name="delete" class="but btn-danger" value="DELETE">
+            <input type="hidden" name="pid" value="<?php echo $row["productID"];?>"/>
+            <a href="editProduct.php?pid=<?php echo $row["productID"]; ?>"><input type="button" name="edit" class="but btn-info" value="EDIT" /></a>
+              <input type="submit" name="delete" class="but btn-danger" value="DELETE">
           </form>
           <?php } ?>
         </p>
       </div>
       </div>
   <?php } ?>
-
-
 </form>
+</div>
+<?php include('footer.php')?>
 </body>
 
 </html>

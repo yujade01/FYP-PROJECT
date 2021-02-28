@@ -53,44 +53,44 @@
         ?>
         <br/><br/>
         <h4><center>Order History</center></h4>
-        <div>
-        <?php
-            if($role == "Admin")
-            {
-            ?>
-            <table>
-                <tr>
-                    <td>Order ID</td>
-                    <td>Username</td>
-                    <td>Email</td>
-                    <td>Phone</td>
-                    <td>Address</td>
-                    <td>Products (Name(Qty))</td>
-                    <td>Total Amount</td>
-                    <td>Shipping Method</td>
-                    <td>Order Date</td>
-                    <td>Status</td>
-                </tr>
-                    <?php
-                    while ($row = mysqli_fetch_assoc($result)) 
-                    {
-                    ?>
+        <div style="min-height: 46vh;">
+            <?php
+                if($role == "Admin")
+                {
+                ?>
+                <table>
                     <tr>
-                        <td><?php echo $row["orderID"]; ?></td>
-                        <td><?php echo $row["Username"]; ?></td>
-                        <td><?php echo $row["email"]; ?></td>
-                        <td><?php echo $row["phone"]; ?></td>
-                        <td><?php echo $row["address"]; ?></td>
-                        <td><?php echo $row["products"]; ?></td>
-                        <td>RM <?php echo $row["total_amount"]; ?></td>
-                        <td><?php echo $row["shipping_method"]; ?></td>                    
-                        <td><?php echo $row["orderDate"]; ?></td>
-                        <td><?php echo $row["status"]; ?></td>
+                        <td>Order ID</td>
+                        <td>Username</td>
+                        <td>Email</td>
+                        <td>Phone</td>
+                        <td>Address</td>
+                        <td>Products (Name(Qty))</td>
+                        <td>Total Amount</td>
+                        <td>Shipping Method</td>
+                        <td>Order Date</td>
+                        <td>Status</td>
                     </tr>
-                    <?php
-                    }
-                    ?>
-            </table>
+                        <?php
+                        while ($row = mysqli_fetch_assoc($result)) 
+                        {
+                        ?>
+                        <tr>
+                            <td><?php echo $row["orderID"]; ?></td>
+                            <td><?php echo $row["Username"]; ?></td>
+                            <td><?php echo $row["email"]; ?></td>
+                            <td><?php echo $row["phone"]; ?></td>
+                            <td><?php echo $row["address"]; ?></td>
+                            <td><?php echo $row["products"]; ?></td>
+                            <td>RM <?php echo $row["total_amount"]; ?></td>
+                            <td><?php echo $row["shipping_method"]; ?></td>                    
+                            <td><?php echo $row["orderDate"]; ?></td>
+                            <td><?php echo $row["status"]; ?></td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                </table>
             <?php
             }
             else if($role == "Customer")
@@ -151,5 +151,6 @@
                 <?php
             }
         ?>
+        <?php include('footer.php')?>
     </body>
 </html>

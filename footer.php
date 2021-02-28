@@ -45,7 +45,7 @@
 
 				<div>
 					<i class="fa fa-map-marker"></i>
-					<p><span>21 Revolution Street</span> Selangor, Malaysia</p>
+					<p><span>Bukit Mertajam</span> Penang, Malaysia</p>
 				</div>
 
 				<div>
@@ -55,7 +55,7 @@
 
 				<div>
 					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">pchub777@gmail.com</a></p>
+					<p><a href="mailto:support@company.com">pchubest2020@gmail.com</a></p>
 				</div>
 
 			</div>

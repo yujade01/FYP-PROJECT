@@ -19,6 +19,9 @@
             div{
                 text-align: center;
             }
+            .div-min-height{
+                min-height: 56vh;;
+            }
             .center {
             margin-left: auto;
             margin-right: auto;
@@ -47,26 +50,26 @@
     </head>
     <body>
         <?php include ('navigation.php'); ?>
-        <div>
+        <div class="div-min-height">
             <br/><br/><br/><br/>
         
-        <?php
-            if($_SESSION["loggedin"] != true)
-            {
-                ?>
-                <p><h1>Please login to view your cart.</h1></p>
-                <?php
-            }else{
+            <?php
+                if($_SESSION["loggedin"] != true)
+                {
+                    ?>
+                    <p><h1>Please login to view your cart.</h1></p>
+                    <?php
+                }else{
 
-                $username = $_SESSION["username"];
-                $conn = mysqli_connect("localhost", "root", "", "pchub");
-                $query = "SELECT * FROM cart WHERE Username = '$username'";
+                    $username = $_SESSION["username"];
+                    $conn = mysqli_connect("localhost", "root", "", "pchub");
+                    $query = "SELECT * FROM cart WHERE Username = '$username'";
 
-                $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
-                $count = mysqli_num_rows($result);
-        ?>
-        <p><b>1/SHOPPING CART</b> 2/DELIVERY 3/PAYMENT</p>
-        <?php
+                    $result = mysqli_query($conn, $query); // First parameter is just return of "mysqli_connect()" function
+                    $count = mysqli_num_rows($result);
+            ?>
+            <p><b>1/SHOPPING CART</b> 2/DELIVERY 3/PAYMENT</p>
+            <?php
                 if($count == 0)
                 {
                     ?>
@@ -157,5 +160,6 @@
         <?php
             }
         ?>
+    <?php include('footer.php')?>
     </body>
 </html>

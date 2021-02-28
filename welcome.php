@@ -54,7 +54,7 @@
 
        .bg{
             background: linear-gradient(-135deg, #c850c0, #4158d0);
-            height: 760px;
+            height: 770px;
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -117,7 +117,7 @@
     <body class="bg">
     <?php include ('navigation.php');?>
     <br/><br/><br/><br/>
-    <div class="center">
+    <div class="center" style="min-height:45vh;">
         <h1 class="text1">PC HUB</h1>
         <h2 class="text2">ALWAYS AVAILABLE FOR YOU</h2>
     
@@ -144,6 +144,6 @@
         </fieldset>
         <?php } ?>
     </div>
-        <?php //include('footer.php')?>
+        <?php include('footer.php')?>
     </body>
 </html>
