@@ -11,6 +11,41 @@
 
     <link rel="stylesheet" type="text/css" href="profile.css">
 
+    <style>
+        .content{
+            border: none; 
+            padding:0.01em 16px; 
+            width: auto; 
+            height: 300px;
+            background-color: white;
+            border-radius: 20px;
+        }
+
+        .edit{
+            height: 50px;
+            width: 290px;
+            border-radius: 1px;
+            background-color: #1a9cb7;
+            border: none;
+            color: white;
+            border-radius: 25px;
+        }
+
+        .edit:hover{
+            cursor: pointer; 
+            background-color: #1493ad;
+        }
+
+        p{
+            font-size: 20px;
+        }
+
+        body{
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+        }
+
+    </style>
+
 </head>
 
 <body>

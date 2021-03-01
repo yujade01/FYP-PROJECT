@@ -17,6 +17,28 @@
             height: 100%;
         }
 
+
+        .container-admin{
+            width: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            justify-content: space-between;
+            padding: 40px;
+            margin-left: 500px;
+            border: 1px solid black;
+        }
+
+        .admintitle{
+            font-size: 24px;
+            color: #8d0000;
+            line-height: 1;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            display: block;
+            padding-bottom: 40px;
+        }
+
         .text1{
             font-family: 'Prosto One';
             font-size: 60px;
@@ -54,7 +76,7 @@
 
        .bg{
             background: linear-gradient(-135deg, #c850c0, #4158d0);
-            height: 770px;
+            height: 1000px;
             background-repeat: no-repeat;
             background-size: contain;
         }
@@ -117,31 +139,32 @@
     <body class="bg">
     <?php include ('navigation.php');?>
     <br/><br/><br/><br/>
-    <div class="center" style="min-height:45vh;">
+    <div class="center" style="min-height:70vh;">
         <h1 class="text1">PC HUB</h1>
         <h2 class="text2">ALWAYS AVAILABLE FOR YOU</h2>
     
         <!-- Show this button if role = customer -->
         <?php if(($role == "Customer")||($username == "GUEST")) {?>
-        <!-- <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">SHOP NOW ></button> -->
         <div class="container"><a class="butn" href="showproduct.php">SHOP NOW</a></div>
         <?php } ?>
+
         <!-- Show this button if role = admin -->
         <?php if($role == "Admin") {?>
-        <!-- <button onclick="location.href='showproduct.php'" class="but" name="shopnow" value="continue">VIEW NOW ></button> -->
         <div class="container"><a class="butn" href="showproduct.php">VIEW NOW</a></div>
         <?php } ?>
 
         <br/><br/><br/><br/>
         <!-- Show Admin control panel if role = customer -->
         <?php if($role == "Admin") {?>
-        <fieldset>
-        <legend style="margin:20px;">ADMIN CONTROL PANEL</legend>
+
+        <div class="container-admin">
+            <span class="admintitle">ADMIN CONTROL PANEL</span>
             <label for="addProduct">ADD NEW PRODUCT</label>
             <a href="uploadform.php"><input type="button" id="addProduct" class="but btn-primary" name="addBtn" value="ADD NOW"/></a><br/><br/>
             <label for="updateProduct">UPDATE EXISTING PRODUCT</label>
             <a href="update_product_form.php"><input type="button" id="updateProduct" class="but btn-primary" name="addBtn" value="UPDATE NOW"/></a><br/><br/>
-        </fieldset>
+
+        </div>
         <?php } ?>
     </div>
         <?php include('footer.php')?>

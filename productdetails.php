@@ -35,6 +35,126 @@ $username = $_SESSION["username"];
   <title><?php echo $product_name; ?></title>
 
 
+          <style>
+              body{
+                background: linear-gradient(-135deg, #c850c0, #4158d0);
+              }
+
+              .back-button{
+              height : 40px;
+              margin: 20px;
+              display: inline-block;
+              padding: 6px 12px;
+              font-size: 14px;
+              font-weight: normal;
+              line-height: 1.42857143;
+              text-align: center;
+              white-space: nowrap;
+              vertical-align: middle;
+              -ms-touch-action: manipulation;
+                  touch-action: manipulation;
+              cursor: pointer;
+              background-image: none;
+              border: 1px solid transparent;
+              border-radius: 4px;
+          }
+
+          .container {
+              max-width: 1200px;
+              padding: 15px;
+              display: flex;
+              background-color: white;
+              border-radius: 15px;
+            }
+
+          /* Columns */
+          .left-column{
+              width: 850px;;
+              position: relative;
+
+          }
+
+          .right-column{
+              width: 550px;
+              margin-top: 0px;
+
+          }
+
+          /* Left Column */
+          .left-column img{
+              width: 490px;
+              height: 490px;
+              position: absolute;
+              margin-left: 120px;
+              
+          }
+
+          .price{
+              color : red;
+              font-size: 33px;
+          }
+
+
+          /* Right Column */
+          /* Product Description */
+          .product-desc{
+              border-bottom: 1px solid #E1E8EE;
+              margin-bottom: 20px;
+          }
+
+          .product-desc h1{
+              font-weight: 300;
+              font-size: 52px;
+              color: #43484D;
+              letter-spacing: -2px; 
+              font-family: 'Roboto', sans-serif;
+          }
+
+          .desc{
+              font-size: 16px;
+              font-weight: 300;
+              color: #86939E;
+              line-height: 24px;
+          }
+
+          /* Product Price */
+          .product-price {
+              display: flex;
+              align-items: center;
+          }
+
+          .price{
+              font-size: 26px;
+              font-weight: 300;
+              color: #43474D;
+              margin-right: 20px;
+          }
+
+          h1{
+              margin-top: s100px;
+          }
+
+          .cartbtn{
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #fff;
+            text-transform: uppercase;
+            width: 350px;
+            height: 50px;
+            border-radius: 25px;
+            background: #57b846;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+  </style>
+
 
 
 </head>
@@ -77,7 +197,7 @@ $username = $_SESSION["username"];
         <input type="hidden" name="pid" id="pid" value="<?php echo $id; ?>" />
         <input type="hidden" name="pname" id="pname" value="<?php echo $product_name ?>"/>
         <?php if($role == "Customer") { ?>
-          <input type="submit" class="but btn-danger" name="add_to_cart" id="button" value="Add to Shopping Cart" />
+          <input type="submit" class="cartbtn" name="add_to_cart" id="button" value="Add to Shopping Cart" />
          <?php } ?>
          <?php if($role == "Admin") { ?>
           <form method="GET">
@@ -89,7 +209,7 @@ $username = $_SESSION["username"];
       </div>
   </main>
 
-  <?php //include('footer.php')?>
+  <?php include('footer.php')?>
 
 </body>
 </html>
