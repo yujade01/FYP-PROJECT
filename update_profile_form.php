@@ -12,36 +12,80 @@
 
 <style>
  
-body{
-   background-color: #eff0f4;
-}
 
-p{
-   font-size: 20px;
-}
+        body{
+            height: 100%;
+            font-family: Poppins-Regular, sans-serif;
+            margin: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
 
-.update{
-   height: 50px;
-   width: 290px;
-   border-radius: 1px;
-   background-color: #1a9cb7;
-   border: none;
-   color: white;
-}
+        }
 
-.update:hover{
-   cursor: pointer; 
-   background-color: #1493ad;
-}
+        .limiter {
+            width: 100%;
+            margin: 0 auto;
+        }
 
-.content{
-   border: none; 
-   padding:0.01em 16px; 
-   width: auto; 
-   height: 400px;
-   background-color: white;
-   border-radius: 5px;
-}
+        .wrapper{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+        }
+
+        .container-login{
+            text-align: center;
+            width: 550px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 50px 130px 33px 95px;
+        }
+
+        .form-control{
+            font-size: 20px;
+            line-height: 1.5;
+            color: #666666;
+            width: 500px;
+            background: #e6e6e6;
+            height: 50px;
+            border-radius: 25px;
+            padding: 0 30px 0 30px;
+        }
+
+        .update{
+            font-size: 20px;
+            line-height: 1.5;
+            color: #fff;
+            text-transform: uppercase;
+            width: 400px;
+            height: 50px;
+            border-radius: 25px;
+            background: #57b846;
+            justify-content: center;
+            align-items: center;
+            padding: 0 25px;
+            margin-top: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .title{
+            font-weight: bold;
+            font-size: 20px;
+        }
+
 
 </style>
 
@@ -51,10 +95,13 @@ p{
 
 <body>
 <?php include ('navigation.php');?>
+
+    <div class="limiter">
+    <div class="wrapper center">
+    <div class="container-login">
+
     <form action="" method="post" enctype="multipart/form-data">
-    <div style="padding:0.01em 16px;">
         <h2>Update Profile</h2>    
-        <div class="content">  
         <?php
             $username = $_SESSION["username"];  
             $conn = mysqli_connect("localhost", "root", "", "pchub");
@@ -63,24 +110,31 @@ p{
             $result = mysqli_query($conn, $sql);
 
             while($row = mysqli_fetch_assoc($result)){  
-                ?>                
-            <p>Name:<input type="text" name="name" value="<?php echo $row['cust_name'] ?>" maxlength="50" required></p>
+            ?>       
+                     
+            <p class = "title">Name:</p><input type="text" class="form-control" name="name" value="<?php echo $row['cust_name'] ?>" maxlength="50" required>
 
-            <p>Email:<input type="email" name="email" value="<?php echo $row['email'] ?>" required></p>
+            <p class = "title">Email:</p><input type="email" class="form-control" name="email" value="<?php echo $row['email'] ?>" required>
 
-            <p>Phone Number:<input type="text" name="phonenum" value="<?php echo $row['phone'] ?>"  required></p>
+            <p class = "title">Phone Number:</p><input type="text" class="form-control" name="phonenum" value="<?php echo $row['phone'] ?>"  required>
 
-            <p>Address:<input type="text" name="address" size="60" value="<?php echo $row['house_address']?>"></p>
+            <p class = "title">Address:</p><input type="text" class="form-control" name="address" size="60" value="<?php echo $row['house_address']?>">
             
             <?php
             }
             ?>
             
             <br><br>
-            <button class = "update" type="submit" name="update" class="btn btn-danger">UPDATE</button>
+            <button class = "update" type="submit" name="update" >UPDATE</button>
 
-</div>
-</div>
+            <div class="back">
+            <a class="txt2" href="profile.php">
+                <i class="fa fa-arrow-left"></i>
+				Back
+                </a>
+         </div>
+
+
 
     <?php
 if (isset($_POST['update'])) { 
@@ -112,5 +166,9 @@ if (isset($_POST['update'])) {
 }
 
 ?>
+
+    </div>
+    </div>
+    </div>
 </body>
 </html>
