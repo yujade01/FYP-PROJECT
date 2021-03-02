@@ -61,6 +61,8 @@ $username = $_SESSION["username"];
 
           .container {
               max-width: 1200px;
+              margin-left: auto;
+              margin-right: auto;
               padding: 15px;
               display: flex;
               background-color: white;
@@ -69,7 +71,7 @@ $username = $_SESSION["username"];
 
           /* Columns */
           .left-column{
-              width: 850px;;
+              width: 850px;
               position: relative;
 
           }
@@ -82,8 +84,8 @@ $username = $_SESSION["username"];
 
           /* Left Column */
           .left-column img{
-              width: 490px;
-              height: 490px;
+              width: 450px;
+              height: 450px;
               position: absolute;
               margin-left: 120px;
               
