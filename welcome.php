@@ -18,15 +18,10 @@
         }
 
 
-        .container-admin{
-            width: 450px;
-            border-radius: 10px;
-            overflow: hidden;
-            justify-content: space-between;
-            padding: 40px;
-            margin-left: 500px;
+          .container-admin{
+            padding-top: 10px;  
             border: 1px solid black;
-        }
+        }  
 
         .admintitle{
             font-size: 24px;
