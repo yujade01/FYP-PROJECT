@@ -5,6 +5,25 @@
 
 <style>
 
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+
+        body{
+            height: 100%;
+            font-family: Poppins-Regular, sans-serif;
+            margin: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+
+        }
+        
     .limiter {
         width: 100%;
         margin: 0 auto;
@@ -29,7 +48,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding: 110px 130px 33px 95px;
+        padding: 60px 130px 33px 95px;
     }
 
     .form-control{
@@ -43,18 +62,24 @@
             padding: 0 30px 0 30px;
     }
 
+    h1{
+        margin-bottom: 30px;
+    }
+
 
 
 </style>
+
 </head>
 
 <body>
-<div class="wrapper">
-        <h1>Update Product</h1>
 
         <div class="limiter">
-        <div class="wrapper center">
+        <div class="wrapper">
         <div class="container-login">
+
+        <h1>Update Product</h1>
+
 
             <form action="update_product_system.php" method="post" enctype="multipart/form-data">
                     <!-- <legend>Product Info</legend> -->
@@ -125,7 +150,6 @@
                         </div>
             </form>
 
-    </div>
 
     </div>
     </div>
