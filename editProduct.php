@@ -12,10 +12,24 @@
 .center{
     text-align: center;
 }
+.content{
+            border: none; 
+            padding:0.01em 16px; 
+            width: auto; 
+            height: 500px;
+            background-color: white;
+            border-radius: 20px;
+        }
+.bg{
+            background: linear-gradient(-135deg, #c850c0, #4158d0);
+            height: 1010px;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
 </style>
 </head>
 
-<body>
+<body class="bg">
 <?php
  if(isset($_GET['pid']))
  {
@@ -24,7 +38,7 @@
      $getProduct = "SELECT * FROM product WHERE productID = '$pid'";
      $result = mysqli_query($conn, $getProduct);
 ?>
-<div class="wrapper">
+<div class="wrapper content">
         <h1>Update Product</h1>
             <form action="update_product_system.php" method="post" enctype="multipart/form-data">
                 <fieldset class="center">
