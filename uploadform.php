@@ -28,7 +28,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
-                padding: 80px 130px 33px 95px;
+                padding: 60px 130px 33px 95px;
             }
 
             .form-control{
@@ -42,17 +42,23 @@
                 padding: 0 30px 0 50px;
              }
 
+             h1{
+                 margin-bottom: 30px;
+             }
+
              
 
         </style>
     </head>
     <body>
     <div class="wrapper">
-        <h1>Upload New Product</h1>
+
 
         <div class="limiter">
         <div class="wrapper center">
         <div class="container-login">
+
+        <h1>Upload New Product</h1>
 
             <form action="uploadsystem.php" method="post" enctype="multipart/form-data">   
                 
