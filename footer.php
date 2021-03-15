@@ -30,7 +30,7 @@
 					<span>ABOUT US</span>
 					Final Year Project<br>
 					Group members: Tan Bing Wei, Saik Yu Jade<br>
-					Advisor: Madam Erma
+					Supervisor: Madam Erma
 				</p>
 
 
