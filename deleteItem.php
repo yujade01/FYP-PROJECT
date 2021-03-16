@@ -2,7 +2,7 @@
 
     if(isset($_POST['delete']))
     {
-        $prod_id = $_POST['id'];
+        $prod_id = $_POST['pid'];
 
         $conn = mysqli_connect("localhost", "root", "", "pchub");
 
